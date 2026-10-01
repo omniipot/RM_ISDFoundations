@@ -9,4 +9,8 @@ public class HelloWorldDebug : MonoBehaviour
     }
 
     // Update is called once per frame
- 
+    void Update()
+    {
+        
+    }
+}
