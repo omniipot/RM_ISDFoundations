@@ -1,13 +1,15 @@
 using UnityEngine;
-
+// This script is to move the GameObject Upwards when the Up Arrow Key is pressed. 
 public class MoveBall : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Vector3 initialPosition = new Vector3(0, 0, 0);
-        transform.position = initialPosition;
-        gameObject.GetComponent<Rigidbody>().linearVelocity = new Vector3(0.1f, 0, 0);
+       int speed = 5;
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
+        }
     }
 
     // Update is called once per frame

@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 1965992918}
   - component: {fileID: 1965992917}
   - component: {fileID: 1965992922}
+  - component: {fileID: 1965992923}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -458,9 +459,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1965992916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ab9079ac23f1004baf14e60037d88de, type: 3}
+  m_Script: {fileID: 11500000, guid: f6cede0f750c91c48bee52685165b83f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HelloWorldDebug
+  m_EditorClassIdentifier: Assembly-CSharp::PushSpaceToDestroy
+--- !u!114 &1965992923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965992916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40ebfe07b242fd4aa3a34fe0b293075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveBall
 --- !u!1001 &8750411532987329505
 PrefabInstance:
   m_ObjectHideFlags: 0
