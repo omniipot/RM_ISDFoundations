@@ -1,0 +1,7 @@
+{
+    "dialogueLines": [
+        {"ID":1,"Text":"Testing! Testing! Can Anyone Hear Me?"},
+        {"ID":2,"Text":"This is the second line of dialogue."},
+        {"ID":3,"Text":"This is the third line of dialogue."}
+    ]
+}

@@ -40,6 +40,8 @@ public class Keypad : MonoBehaviour
             text.text = "Correct Code!"; // Display a message for correct code
             Invoke("Clear", 2f); // Clear the text after 2 seconds
             Invoke("Exit", 2f); // Close the keypad after 2 seconds
+            Cursor.visible = false; // Hide the cursor when the keypad is closed
+            Cursor.lockState = CursorLockMode.Locked; // Lock the cursor when the keypad is closed
             playerDetection.increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
             
         }
