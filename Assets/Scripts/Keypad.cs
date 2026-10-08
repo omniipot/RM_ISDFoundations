@@ -41,6 +41,7 @@ public class Keypad : MonoBehaviour
             Invoke("Clear", 2f); // Clear the text after 2 seconds
             Invoke("Exit", 2f); // Close the keypad after 2 seconds
             playerDetection.increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
+            
         }
         else
         {
