@@ -19,7 +19,7 @@ public class PlayerDetection : MonoBehaviour
     public TextMeshProUGUI partsCollectedText; // Reference to the TextMeshProUGUI component for displaying parts collected
     public TextMeshProUGUI InteractionText; // Reference to the TextMeshProUGUI component for displaying interaction messages
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    public OpenObject openObject; // Reference to the OpenObject Script
     public void increasePartsCollected()
     {
         partsCollected++;
@@ -67,6 +67,7 @@ public class PlayerDetection : MonoBehaviour
                     increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
                 }
             }
+            
             else if(hitInfo.collider.CompareTag("Keypad"))
             { InteractionText.text = "Press E to interact with the Keypad"; // Display interaction message
                 Debug.Log("You are in range of the Keypad");
@@ -78,8 +79,29 @@ public class PlayerDetection : MonoBehaviour
                        keypad.OpenKeypad();
                    }
                 }
+
             }
-            else if(hitInfo.collider.ComparetTag("OpenableObject"));
+            else if (hitInfo.collider.CompareTag("OpenableObject"))
+                {
+                    InteractionText.text = "Press E to open";
+                    Debug.Log("You are in range of the object");
+                    if(Input.GetKeyDown(KeyCode.E))
+                    {
+                        Debug.LogWarning("Button Input Accepted");
+                        OpenObject openObject = hitInfo.collider.GetComponent<OpenObject>();
+
+                        if (openObject != null)
+                        {
+                            openObject.PlayAnimation();
+                        }
+                        else
+                    {
+                        Debug.LogError("OpenObjectScriptNotFound");
+                    }
+                    }
+                }
+            
+        
 
         
             else

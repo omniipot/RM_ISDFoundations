@@ -4042,6 +4042,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ad1f9dbe234acd4faab32221b313210, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1281649963}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ad1f9dbe234acd4faab32221b313210, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1281649965}
   m_SourcePrefab: {fileID: 100100000, guid: 6ad1f9dbe234acd4faab32221b313210, type: 3}
 --- !u!1 &797249659
 GameObject:
@@ -6628,7 +6631,7 @@ Animator:
   m_GameObject: {fileID: 1281649958}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba49438ce954f644597d87763c9ea57e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 54569aedc44765c4cab919e0acc8013a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6661,6 +6664,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7522675, y: 1.3439353, z: 0.27245235}
   m_Center: {x: 0.12386626, y: 0.65595734, z: -0.024123207}
+--- !u!114 &1281649965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281649958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946a2ccb39b35614cb2bbae9b60b42d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenObject
 --- !u!1 &1289373308
 GameObject:
   m_ObjectHideFlags: 0

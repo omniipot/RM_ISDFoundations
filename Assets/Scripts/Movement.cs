@@ -1,5 +1,6 @@
 using UnityEngine;
 // This script is to allow a gameobject to move on its own like a player would when the arrow keys  or wasd keys are pressed.
+// this script is to 
 public class Movement : MonoBehaviour{
     public float moveSpeed;
     public float sprintSpeed;
@@ -8,7 +9,7 @@ public class Movement : MonoBehaviour{
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+  
     }
 
     // Update is called once per frame
