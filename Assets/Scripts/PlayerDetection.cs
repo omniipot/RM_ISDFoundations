@@ -79,6 +79,9 @@ public class PlayerDetection : MonoBehaviour
                    }
                 }
             }
+            else if(hitInfo.collider.ComparetTag("OpenableObject"));
+
+        
             else
             {
                 Debug.Log("You are not in range of any key");
@@ -88,6 +91,8 @@ public class PlayerDetection : MonoBehaviour
     
         
         }
+
+       
        
 
 
