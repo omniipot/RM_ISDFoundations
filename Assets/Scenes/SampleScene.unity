@@ -6616,6 +6616,7 @@ Animation:
   m_Animation: {fileID: 1827226128182048838, guid: 6ad1f9dbe234acd4faab32221b313210, type: 3}
   m_Animations:
   - {fileID: 1827226128182048838, guid: 6ad1f9dbe234acd4faab32221b313210, type: 3}
+  - {fileID: 1827226128182048838, guid: 6ad1f9dbe234acd4faab32221b313210, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

@@ -1,10 +1,11 @@
 
+using NUnit.Framework;
 using UnityEngine;
 
 public class OpenObject : MonoBehaviour
 {
     private Animator anim;
-    private bool isOpen = false;
+    private bool isAnimating = false;
 
     void Start()
     {
@@ -18,24 +19,16 @@ public class OpenObject : MonoBehaviour
 
     public void PlayAnimation()
     {
-        Debug.LogWarning("Open Signal Recieved");
+        if (anim == null || isAnimating)
+            return;
 
-        if (anim == null)
-        {
-            Debug.LogError("Animator is missing!! HELP ME HELP ME HELP ME");
-        }
+        isAnimating = true;
+        anim.SetTrigger("TrOpen");
+    }
 
-        if (isOpen == false)
-        {
-            Debug.LogWarning("OpeningAnimationTriggered");
-            anim.SetTrigger("TrOpen");
-            isOpen = true;
-        }
-        else
-        {
-                Debug.LogWarning("ClosingAnimationTriggered");
-                anim.SetTrigger("TrClose");
-                isOpen = false;
-        }
+    // Called by an Animation Event at the end of the animation
+    public void AnimationFinished()
+    {
+        isAnimating = false;
     }
 }
