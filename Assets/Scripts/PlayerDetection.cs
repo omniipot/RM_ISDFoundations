@@ -46,31 +46,31 @@ public class PlayerDetection : MonoBehaviour
             //KEY 1
             if(hitInfo.collider.CompareTag("Key1"))
             { InteractionText.text = "Press E to pick up Key 1"; // Display interaction message
-                Debug.Log("You are in range of Key 1");
+              
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     hasKey1 = true;
                     Destroy(hitInfo.collider.gameObject);
-                    Debug.Log("You have picked up Key 1");
+                   
                     increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
                 }
             }
             //KEY 2
             else if(hitInfo.collider.CompareTag("Key2"))
             { InteractionText.text = "Press E to pick up Key 2"; // Display interaction message
-                Debug.Log("You are in range of Key 2");
+              
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     hasKey2 = true;
                     Destroy(hitInfo.collider.gameObject);
-                    Debug.Log("You have picked up Key 2");
+                  
                     increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
                 }
             }
             
             else if(hitInfo.collider.CompareTag("Keypad"))
             { InteractionText.text = "Press E to interact with the Keypad"; // Display interaction message
-                Debug.Log("You are in range of the Keypad");
+              
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                    Keypad keypad = hitInfo.collider.GetComponent<Keypad>();
@@ -82,25 +82,22 @@ public class PlayerDetection : MonoBehaviour
 
             }
             else if (hitInfo.collider.CompareTag("OpenableObject"))
-                {
-                    InteractionText.text = "Press E to open";
-                    Debug.Log("You are in range of the object");
-                    if(Input.GetKeyDown(KeyCode.E))
+                {   
+                    OpenObject openObject = hitInfo.collider.GetComponentInParent<OpenObject>();
+                    
+                    
+                    if (openObject != null && openObject.Interactable)
                     {
-                        Debug.LogWarning("Button Input Accepted");
-                        OpenObject openObject = hitInfo.collider.GetComponent<OpenObject>();
+                        InteractionText.text = "Press E to open";
 
-                        if (openObject != null)
+                        if (Input.GetKeyDown(KeyCode.E))
                         {
                             openObject.PlayAnimation();
                         }
-                        else
-                    {
-                        Debug.LogError("OpenObjectScriptNotFound");
-                    }
+                  
                     }
                 }
-            
+        
         
 
         

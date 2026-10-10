@@ -18,7 +18,8 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event AnimationFinished has a time (1.743006) outside
+      the clip's valid range (0.000000..1.633333). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -58,6 +59,20 @@ ModelImporter:
       events:
       - time: 0.9866072
         functionName: AnimationFinished
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.05691964
+        functionName: DisableInteractionCollider
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.86383927
+        functionName: EnableInteractionCollider
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -13,6 +13,7 @@ public class Keypad : MonoBehaviour
     public Text text; // Reference to the Text component for displaying messages
     
     public PlayerDetection playerDetection; // Reference to the PlayerDetection script
+    public bool Completed = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,9 +31,22 @@ public class Keypad : MonoBehaviour
     {
         text.text = ""; // Clear the text
     }
-
-    public void Enter()
+    public void SetCode(string newCode)
     {
+        keypadCode= newCode;
+        isCodeCorrect = false;
+        Completed = false;
+        Clear();
+    }
+    public void Enter()
+    {      
+        if (Completed)
+        {
+            text.text = "You've been here already! GO FASTER!!";
+            Invoke("Exit", 2f);
+            return;
+        }
+
         if (text.text == keypadCode)
         {
             isCodeCorrect = true; // Set the trigger to true if the code is correct
@@ -43,8 +57,10 @@ public class Keypad : MonoBehaviour
             Cursor.visible = false; // Hide the cursor when the keypad is closed
             Cursor.lockState = CursorLockMode.Locked; // Lock the cursor when the keypad is closed
             playerDetection.increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
+            Completed = true;
             
         }
+        
         else
         {
             isCodeCorrect = false; // Set the trigger to false if the code is incorrect

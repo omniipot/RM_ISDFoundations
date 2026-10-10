@@ -5,6 +5,22 @@ using UnityEngine;
 public class OpenObject : MonoBehaviour
 {
     private Animator anim;
+
+    public Collider frontInteractionCollider;
+    public bool Interactable = true;
+
+    public void DisableInteractionCollider()
+    {
+        frontInteractionCollider.enabled = false;
+        Interactable = false;
+    }
+
+    public void EnableInteractionCollider()
+    {
+        frontInteractionCollider.enabled = true;
+        Interactable = true;
+    }
+    
     private bool isAnimating = false;
 
     void Start()
