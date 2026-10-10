@@ -10,6 +10,9 @@ TagManager:
   - Key1
   - SpawnPoint
   - KeySpawnPoint
+  - PaperBook
+  - PaperPaint
+  - PaperPaintings
   layers:
   - Default
   - TransparentFX

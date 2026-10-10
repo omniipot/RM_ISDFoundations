@@ -9,6 +9,11 @@ public class KeySpawnManager : MonoBehaviour
     [SerializeField] private GameObject Key1Prefab;
     [SerializeField] private GameObject Key2Prefab;
 
+    [SerializeField] private GameObject Paper1Prefab;
+
+    [SerializeField] private GameObject Paper2Prefab;
+
+
     [SerializeField] private string Tag = "KeySpawnPoint";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    
@@ -30,6 +35,8 @@ public class KeySpawnManager : MonoBehaviour
 
         SpawnOneKey(Key1Prefab, availiblePoints);
         SpawnOneKey(Key2Prefab, availiblePoints);
+        SpawnOneKey(Paper1Prefab, availiblePoints);
+        SpawnOneKey(Paper2Prefab, availiblePoints);
     
     }
 

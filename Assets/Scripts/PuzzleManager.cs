@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Permissions;
 using Unity.VectorGraphics;
 using UnityEditor.PackageManager;
 using UnityEngine;
@@ -24,11 +25,19 @@ public class PuzzleManager : MonoBehaviour
     {
         generateMapping();
         randomizePaintings();
+        randomizeBooks();
+        
 
         string shapeCode = GenerateShapeCode();
         ShapePuzzle.SetCode(shapeCode);
+        string colourCode = GenerateColourCode();
+        ColourPuzzle.SetCode(colourCode);
+        string mixedCode = GenerateMixedCode();
+        MixedPuzzle.SetCode(mixedCode);
 
         Debug.LogWarning("Shape keypad Code:"+ shapeCode);
+        Debug.LogWarning("Colour keypad Code:"+ colourCode);
+        Debug.LogWarning("Mixed keypad Code:" + mixedCode);
     }
 
     // Update is called once per frame
@@ -58,14 +67,18 @@ public class PuzzleManager : MonoBehaviour
         symbNumbers["Triangle"] = numbers[1];
         symbNumbers["Square"] = numbers[2];
 
-        symbNumbers["Red"] = numbers[3];
-        symbNumbers["Blue"] = numbers[4];
-        symbNumbers["Green"] = numbers[5];
-        symbNumbers["Yellow"] = numbers[6];
-        symbNumbers["Purple"] = numbers[7];
+        symbColours["Red"] = numbers[3];
+        symbColours["Blue"] = numbers[4];
+        symbColours["Green"] = numbers[5];
+        symbColours["Yellow"] = numbers[6];
+        symbColours["Purple"] = numbers[7];
         
         Debug.Log("Puzzles Map Done Sir!");
         foreach (var entry in symbNumbers)
+        {
+            Debug.LogWarning(entry.Key + "=" + entry.Value);
+        }
+        foreach (var entry in symbColours)
         {
             Debug.LogWarning(entry.Key + "=" + entry.Value);
         }
@@ -91,6 +104,7 @@ public class PuzzleManager : MonoBehaviour
 
         
         }
+        paintingShapes = paintingShuffled.ToArray();
         for (int i = 0; i < paintingShuffled.Count; i++)
         {
             
@@ -138,6 +152,7 @@ public class PuzzleManager : MonoBehaviour
 
         
         }
+        bookColours = bookShuffled.ToArray();
         for (int i = 0; i < bookShuffled.Count; i++)
         {
             
@@ -147,7 +162,73 @@ public class PuzzleManager : MonoBehaviour
         }
     
     }
+    string GenerateColourCode()
+    {
+        {
+        string code = "";
+
+        foreach (GameObject colour in bookColours)
+        {
+            BookClue clue = colour.GetComponent<BookClue>();
+
+            if (clue == null)
+            {
+                Debug.LogError("FIX YOUR SHIT NO PAINTING CLUE ON" + colour.name);
+                return "";
+
+            }
+
+            code += symbColours[clue.colourName].ToString();
+
+        }
+
+        return code;
     }
+    }
+    string GenerateMixedCode()
+    {
+        string code = "";
+    
+        int count = Mathf.Max(paintingShapes.Length, bookColours.Length);
+
+        for (int i = 0; i < count; i++)
+        {
+            if (i < paintingShapes.Length)
+            {
+                PaintingClue painting =
+                paintingShapes[i].GetComponent<PaintingClue>();
+
+                if (painting == null || !symbNumbers.ContainsKey(painting.shapeName))
+                {
+                    Debug.LogWarning("Bad Painting clue in mixed");
+                    return "";
+                }
+
+                code += symbNumbers[painting.shapeName].ToString();
+            if (i < bookColours.Length)
+            {
+                BookClue book =
+                    bookColours[i].GetComponent<BookClue>();
+
+                if (book == null ||
+                    !symbColours.ContainsKey(book.colourName))
+                {
+                    Debug.LogError("Invalid book clue in mixed code.");
+                    return "";
+                }
+
+                code += symbColours[book.colourName].ToString();
+            }
+            }
+        
+        }
+        return code;
+    }
+}
+
+    
+
+    
 
     
 

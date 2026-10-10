@@ -20,6 +20,7 @@ public class PlayerDetection : MonoBehaviour
     public TextMeshProUGUI InteractionText; // Reference to the TextMeshProUGUI component for displaying interaction messages
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public OpenObject openObject; // Reference to the OpenObject Script
+    public OpenPaper openPaper;
     public void increasePartsCollected()
     {
         partsCollected++;
@@ -97,7 +98,40 @@ public class PlayerDetection : MonoBehaviour
                   
                     }
                 }
-        
+
+            else if (hitInfo.collider.CompareTag("PaperPaint"))
+            {
+                InteractionText.text = "Press E to look at the Painting Paper";
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    
+                    if (openPaper != null)
+                    {
+                        openPaper.OpenPaperPainting();
+                    }
+                    else
+                    {
+                        Debug.LogError("OpenPaper component not found!");
+                    }
+                }
+            }
+            else if (hitInfo.collider.CompareTag("PaperBook"))
+            {
+                 InteractionText.text = "Press E to look at the Book Paper";
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                   
+                    if (openPaper != null)
+                    {
+                        openPaper.OpenPaperBook();
+                    }
+                    else
+                    {
+                        Debug.LogError("OpenPaper component not found!");
+                    }
+                }
+
+            }
         
 
         
