@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// this script serves as a way to internally set painting shapes for use in scripts
 public class PaintingClue : MonoBehaviour
 {
 

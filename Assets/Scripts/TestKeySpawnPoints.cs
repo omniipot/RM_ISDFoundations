@@ -1,4 +1,4 @@
-
+// this script is used to text the spawn points for objects to see how they display inside them.
 using UnityEngine;
 
 public class TestKeySpawnPoints : MonoBehaviour

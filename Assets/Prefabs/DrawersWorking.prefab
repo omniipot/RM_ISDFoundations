@@ -274,9 +274,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79357f1fc300b8c4e835d16e22f453cc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7893780506555534488}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79357f1fc300b8c4e835d16e22f453cc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6016513346938743519}
   m_SourcePrefab: {fileID: 100100000, guid: 79357f1fc300b8c4e835d16e22f453cc, type: 3}
 --- !u!4 &1396707515728642946 stripped
 Transform:
@@ -445,17 +442,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.0501345, z: 0.25769028}
   m_Center: {x: 0, y: 0.515908, z: -0.023902256}
---- !u!114 &6016513346938743519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741145628897941816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 664d3576f50fb334f9d0e9f87d6e4c8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestKeySpawnPoints
-  keyPrefab: {fileID: 0}
-  spawnPointTag: KeySpawnPoint

@@ -1,24 +1,50 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Permissions;
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VectorGraphics;
 using UnityEditor.PackageManager;
 using UnityEngine;
-
+// this script is the main way that all of the puzzle codes get randomized correctly and put inside the keypads.
 public class PuzzleManager : MonoBehaviour
 {
     public Keypad ShapePuzzle;
     public Keypad ColourPuzzle;
     public Keypad MixedPuzzle;
 
-    private Dictionary<string, int> symbNumbers = new Dictionary<string, int>();
+    public Sprite[] NumberSprites;
+
+    private Dictionary<string, int> symbShapes = new Dictionary<string, int>();
 
     public Transform[] paintingSlots;
     public GameObject[] paintingShapes;
+    
 
     private Dictionary<string,int> symbColours = new Dictionary<string, int>();
 
     public Transform[] bookSlots;
     public GameObject[] bookColours;
+
+    private readonly string[] MixedAnswer =
+    {
+        "Triangle",
+        "Square",
+        "Red",
+        "Green",
+        "Purple",
+        "Circle"
+    };
+
+    // number images
+
+    public UnityEngine.UI.Image CircleImage;
+    public UnityEngine.UI.Image triangleImage;
+    public UnityEngine.UI.Image squareImage;
+    public UnityEngine.UI.Image redImage;
+    public UnityEngine.UI.Image blueImage;
+    public UnityEngine.UI.Image greenImage;
+    public UnityEngine.UI.Image yellowImage;
+    public UnityEngine.UI.Image purpleImage;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +53,16 @@ public class PuzzleManager : MonoBehaviour
         randomizePaintings();
         randomizeBooks();
         
+        squareImage.sprite = NumberSprites[symbShapes["Square"]];
+        CircleImage.sprite = NumberSprites[symbShapes["Circle"]];
+        triangleImage.sprite = NumberSprites[symbShapes["Triangle"]];
+
+        redImage.sprite = NumberSprites[symbColours["Red"]];
+        blueImage.sprite = NumberSprites[symbColours["Blue"]];
+        greenImage.sprite = NumberSprites[symbColours["Green"]];
+        yellowImage.sprite = NumberSprites[symbColours["Yellow"]];
+        purpleImage.sprite = NumberSprites[symbColours["Purple"]];
+
 
         string shapeCode = GenerateShapeCode();
         ShapePuzzle.SetCode(shapeCode);
@@ -48,7 +84,7 @@ public class PuzzleManager : MonoBehaviour
 
     void generateMapping()
     {
-        symbNumbers.Clear();
+        symbShapes.Clear();
         List<int> numbers = new List<int>
         {
             0,1,2,3,4,5,6,7,8,9
@@ -63,9 +99,9 @@ public class PuzzleManager : MonoBehaviour
             numbers[randomIndex] = temp;
 
         }
-        symbNumbers["Circle"] = numbers[0];
-        symbNumbers["Triangle"] = numbers[1];
-        symbNumbers["Square"] = numbers[2];
+        symbShapes["Circle"] = numbers[0];
+        symbShapes["Triangle"] = numbers[1];
+        symbShapes["Square"] = numbers[2];
 
         symbColours["Red"] = numbers[3];
         symbColours["Blue"] = numbers[4];
@@ -74,7 +110,7 @@ public class PuzzleManager : MonoBehaviour
         symbColours["Purple"] = numbers[7];
         
         Debug.Log("Puzzles Map Done Sir!");
-        foreach (var entry in symbNumbers)
+        foreach (var entry in symbShapes)
         {
             Debug.LogWarning(entry.Key + "=" + entry.Value);
         }
@@ -129,7 +165,7 @@ public class PuzzleManager : MonoBehaviour
 
             }
 
-            code += symbNumbers[clue.shapeName].ToString();
+            code += symbShapes[clue.shapeName].ToString();
 
         }
 
@@ -189,41 +225,25 @@ public class PuzzleManager : MonoBehaviour
     {
         string code = "";
     
-        int count = Mathf.Max(paintingShapes.Length, bookColours.Length);
-
-        for (int i = 0; i < count; i++)
+       foreach (string symbol in MixedAnswer)
         {
-            if (i < paintingShapes.Length)
+            int value;
+
+            if (symbShapes.TryGetValue(symbol, out value))
             {
-                PaintingClue painting =
-                paintingShapes[i].GetComponent<PaintingClue>();
-
-                if (painting == null || !symbNumbers.ContainsKey(painting.shapeName))
-                {
-                    Debug.LogWarning("Bad Painting clue in mixed");
-                    return "";
-                }
-
-                code += symbNumbers[painting.shapeName].ToString();
-            if (i < bookColours.Length)
+                code += value.ToString();
+            }
+            else if (symbColours.TryGetValue(symbol, out value))
             {
-                BookClue book =
-                    bookColours[i].GetComponent<BookClue>();
-
-                if (book == null ||
-                    !symbColours.ContainsKey(book.colourName))
-                {
-                    Debug.LogError("Invalid book clue in mixed code.");
-                    return "";
-                }
-
-                code += symbColours[book.colourName].ToString();
-            }
-            }
-        
+                code += value.ToString();
+            };
+            
+            
         }
         return code;
     }
+
+    
 }
 
     

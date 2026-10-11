@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// this script allows you to spawn prefabs of the objects that have spawn points for single instance items (like keys and paper),
 public class SpawningOpenables : MonoBehaviour
 {
      [SerializeField]private Transform[] SpawnPoints;

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// this script is just to set colours internally for each book
 public class BookClue : MonoBehaviour
 {
 

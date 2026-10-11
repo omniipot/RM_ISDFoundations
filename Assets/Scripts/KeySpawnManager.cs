@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// this script handles the spawning of all single use items, like keys and papers
 public class KeySpawnManager : MonoBehaviour
 {
 

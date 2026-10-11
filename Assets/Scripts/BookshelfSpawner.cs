@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 using UnityEngine;
-
+// this script is to spawn bookshelfs at random locations to add to the randomness of the level
 public class BookshelfSpawner : MonoBehaviour
 {
 

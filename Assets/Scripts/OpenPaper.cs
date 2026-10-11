@@ -1,11 +1,13 @@
 using UnityEngine;
-
+// this script will open the bits of paper on the screen, and also handle the logic for determining what 
+// image to use for each number.
 public class OpenPaper : MonoBehaviour
 {
     public GameObject PaperPainting;
     public GameObject PaperBook;
 
-    public float paperDisplayTime = 3f;
+
+    public float paperDisplayTime = 12f;
 
     public GameObject Player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

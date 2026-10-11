@@ -1,7 +1,7 @@
 
 using NUnit.Framework;
 using UnityEngine;
-
+// this script wil handle the interaction and opening and closing of the animations for OpenableObjects
 public class OpenObject : MonoBehaviour
 {
     private Animator anim;

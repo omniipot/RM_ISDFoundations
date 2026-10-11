@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+// this script will play animations for if you have key 1 or key 2, and you pass by a trigger
 public class KeyDetectionTrigger : MonoBehaviour
 {
     public Animator key1Animator;

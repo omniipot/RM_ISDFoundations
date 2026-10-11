@@ -1,9 +1,6 @@
 using UnityEngine;
 using TMPro;
-// This script will set up a raycast that can detect objects in front of the player. 
-// When the player is in range of an object, it will display a message that the player is in range.
-// Additionally, the player will be able to pick up the object by pressing the "E" key; which will set a variable to true.
-
+// this script handles all of the interaction of the player between objects, which is differenticated via tags. 
 
 
 public class PlayerDetection : MonoBehaviour
@@ -70,7 +67,7 @@ public class PlayerDetection : MonoBehaviour
             }
             
             else if(hitInfo.collider.CompareTag("Keypad"))
-            { InteractionText.text = "Press E to interact with the Keypad"; // Display interaction message
+            { InteractionText.text = "Press E to interact with the " + hitInfo.collider.name + " Keypad"; // Display interaction message
               
                 if(Input.GetKeyDown(KeyCode.E))
                 {
