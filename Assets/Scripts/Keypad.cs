@@ -74,6 +74,8 @@ public class Keypad : MonoBehaviour
     {
        Keypads.SetActive(false); // Hide the keypad UI
        Player.GetComponent<PlayerMovement>().enabled = true; // Enable player movement
+       Cursor.visible = false;
+       Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
