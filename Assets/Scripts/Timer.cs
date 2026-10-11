@@ -6,13 +6,16 @@ public class Timer : MonoBehaviour
 // the final time will be displayed on screen when the player reaches the end.
 {
 
-    private bool isTimerRunning = false;
-    private float currentTime = 0f;
+    public bool isTimerRunning = false;
+    public float currentTime = 0f;
     public TextMeshProUGUI timerText; // Reference to the TextMeshProUGUI component for displaying the timer
+    public string currentTimerText;
+  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.LogWarning("This script is running on : " + this.gameObject.name);
         currentTime = 0f;
         isTimerRunning = true;
     }
@@ -30,5 +33,11 @@ public class Timer : MonoBehaviour
     {
         TimeSpan timeSpan = TimeSpan.FromSeconds(currentTime);
         timerText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds / 10);
+        currentTimerText = timerText.text;
+    }
+
+    public void StopTimer()
+    {
+        isTimerRunning = false;
     }
 }

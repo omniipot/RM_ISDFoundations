@@ -8,6 +8,8 @@ public class KeyDetectionTrigger : MonoBehaviour
     public Animator barrier1Animator;
     public Animator barrier2Animator;
 
+    public CompletionCheck completionCheck;
+
     private bool sequence1Play = false;
     private bool sequence2Play = false;
 
@@ -15,6 +17,11 @@ public class KeyDetectionTrigger : MonoBehaviour
     public bool Key2Inserted = false;
 
     public PlayerDetection playerDetection;
+    public GameObject Door;
+    public Collider doorCollider;
+
+    public bool playerInZone = false;
+    
     void Start()
     {
         
@@ -23,7 +30,7 @@ public class KeyDetectionTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDetection.hasKey1  && sequence1Play == false)
+        if (playerInZone && playerDetection.hasKey1  && sequence1Play == false)
         {
             sequence1Play = true;
             StartCoroutine(PlaySequence(key1Animator, "Key1Fall", barrier1Animator, "Barrier1Fall"));
@@ -31,14 +38,21 @@ public class KeyDetectionTrigger : MonoBehaviour
         }
     
 
-    if (playerDetection.hasKey2  && sequence2Play == false)
+        if (playerInZone && playerDetection.hasKey2  && sequence2Play == false)
         {
             sequence2Play = true;
             StartCoroutine(PlaySequence(key2Animator, "Key2Fall", barrier2Animator, "Barrier2Fall"));
             Key2Inserted = true;
 
        }
+       if (completionCheck.DoorOpen == true)
+        {
+            Debug.LogWarning("Door Is Open!");
+            doorCollider.enabled = false;
+            // then play door opening animation
+        }
     }
+    
     private IEnumerator PlaySequence(
         Animator keyAnimator, string KeyAnimation,
         Animator barrierAnimator, string barrierAnimation)
@@ -63,6 +77,24 @@ public class KeyDetectionTrigger : MonoBehaviour
         {
             yield return null;
         }
+     }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+        {
+            playerInZone = true;
+        }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player"))
+        {
+            playerInZone = false;
+        }
+        }
     }
      
-}
+
+
