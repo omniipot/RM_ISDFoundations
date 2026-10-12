@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class EndGame : MonoBehaviour
 
             Debug.LogWarning("FinalTime: "  + timer.currentTime);
             Debug.LogWarning("Player Rank: " + rank);
+
+            SceneManager.LoadSceneAsync(2);
 
         }
     }

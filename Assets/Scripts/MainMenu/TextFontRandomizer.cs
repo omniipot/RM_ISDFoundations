@@ -34,7 +34,7 @@ public class TextFontRandomizer : MonoBehaviour
         {
             ChangeFont();
 
-            yield return new WaitForSeconds(Random.Range(2f,6f));
+            yield return new WaitForSeconds(Random.Range(0.5f,1f));
         }
     }
 }
