@@ -14,6 +14,9 @@ public class Keypad : MonoBehaviour
     
     public PlayerDetection playerDetection; // Reference to the PlayerDetection script
     public bool Completed = false;
+    public string KeypadType = "";
+
+    public ItemCollectionChecking itemCollectionChecking;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,6 +61,7 @@ public class Keypad : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked; // Lock the cursor when the keypad is closed
             playerDetection.increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
             Completed = true;
+            itemCollectionChecking.UpdateKeypadDisplay(KeypadType);
             
         }
         

@@ -22,6 +22,8 @@ public class KeyDetectionTrigger : MonoBehaviour
     public Collider doorCollider;
 
     public bool playerInZone = false;
+
+    private bool doorAnimationStarted = false;
     
     void Start()
     {
@@ -46,8 +48,9 @@ public class KeyDetectionTrigger : MonoBehaviour
             Key2Inserted = true;
 
        }
-       if (completionCheck.DoorOpen == true)
-        {
+       if (completionCheck.DoorOpen && !doorAnimationStarted)
+        {   
+            doorAnimationStarted = true;
             Debug.LogWarning("Door Is Open!");
             doorCollider.enabled = false;
             DoorAnimator.Play("DoorOpen",0,0f);

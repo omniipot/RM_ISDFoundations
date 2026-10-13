@@ -8,6 +8,8 @@ public class PlayerDetection : MonoBehaviour
     public Camera playerCamera; // Reference to the player's camera
     public bool hasKey1 = false;
     public bool hasKey2 = false; 
+
+    public ItemCollectionChecking itemCollectionChecking;
     
     public float interactionRange = 3f; // The range at which the player can interact with objects
 
@@ -51,6 +53,7 @@ public class PlayerDetection : MonoBehaviour
                     Destroy(hitInfo.collider.gameObject);
                    
                     increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
+                    itemCollectionChecking.UpdateKeyDisplay();
                 }
             }
             //KEY 2
@@ -63,6 +66,7 @@ public class PlayerDetection : MonoBehaviour
                     Destroy(hitInfo.collider.gameObject);
                   
                     increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
+                    itemCollectionChecking.UpdateKeyDisplay();
                 }
             }
             

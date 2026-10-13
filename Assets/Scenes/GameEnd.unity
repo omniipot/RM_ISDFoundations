@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 355542131}
   - component: {fileID: 355542130}
   m_Layer: 5
-  m_Name: YOU ESCAPED!! (1)
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 1966389776}
   - component: {fileID: 1966389775}
   m_Layer: 5
-  m_Name: YOU ESCAPED!! (2)
+  m_Name: Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
