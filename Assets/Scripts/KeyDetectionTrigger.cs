@@ -7,6 +7,7 @@ public class KeyDetectionTrigger : MonoBehaviour
     public Animator key2Animator;
     public Animator barrier1Animator;
     public Animator barrier2Animator;
+    public Animator DoorAnimator;
 
     public CompletionCheck completionCheck;
 
@@ -49,6 +50,7 @@ public class KeyDetectionTrigger : MonoBehaviour
         {
             Debug.LogWarning("Door Is Open!");
             doorCollider.enabled = false;
+            DoorAnimator.Play("DoorOpen",0,0f);
             // then play door opening animation
         }
     }
