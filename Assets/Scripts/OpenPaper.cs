@@ -22,7 +22,7 @@ public class OpenPaper : MonoBehaviour
     {
         if(PaperPainting.activeSelf == true || PaperBook.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 PaperPainting.SetActive(false);
                 PaperBook.SetActive(false);

@@ -85,7 +85,10 @@ public class Keypad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+      if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Invoke("Exit", 0f);
+            }
     }
     public void OpenKeypad()
     {
