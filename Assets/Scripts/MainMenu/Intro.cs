@@ -23,6 +23,7 @@ public class Intro : MonoBehaviour
         Text3.gameObject.SetActive(false);
         Text4.gameObject.SetActive(false);
         Text5.gameObject.SetActive(false);
+        PlayButton.gameObject.SetActive(false);
 
 
         StartCoroutine(PlayText());
@@ -45,16 +46,19 @@ public class Intro : MonoBehaviour
             yield return new WaitForSeconds(2f);
 
             Text2.gameObject.SetActive(true);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
 
             Text3.gameObject.SetActive(true);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
 
             Text4.gameObject.SetActive(true);
             yield return new WaitForSeconds(2f);
 
             Text5.gameObject.SetActive(true);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
+
+            PlayButton.gameObject.SetActive(true);
+            yield return new WaitForSeconds(4f);
             
             ;
         }

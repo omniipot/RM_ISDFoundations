@@ -24,10 +24,13 @@ public class KeyDetectionTrigger : MonoBehaviour
     public bool playerInZone = false;
 
     private bool doorAnimationStarted = false;
+
+    public Light CanLeaveLight;
     
     void Start()
     {
-        
+
+        CanLeaveLight.color = Color.red;
     }
 
     // Update is called once per frame
@@ -54,6 +57,8 @@ public class KeyDetectionTrigger : MonoBehaviour
             Debug.LogWarning("Door Is Open!");
             doorCollider.enabled = false;
             DoorAnimator.Play("DoorOpen",0,0f);
+            CanLeaveLight.color = Color.green;
+            
             // then play door opening animation
         }
     }

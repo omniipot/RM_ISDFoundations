@@ -15,7 +15,7 @@ public class CompletionCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(keyDetectionTrigger.Key1Inserted && keyDetectionTrigger.Key2Inserted && playerDetection.partsCollected == 3)
+        if(keyDetectionTrigger.Key1Inserted && keyDetectionTrigger.Key2Inserted && playerDetection.partsCollected == 5)
         {
             DoorOpen = true;
         }

@@ -15,7 +15,7 @@ public class PlayerDetection : MonoBehaviour
 
     public int partsCollected = 0; // Variable to track the number of parts collected
 
-    public TextMeshProUGUI partsCollectedText; // Reference to the TextMeshProUGUI component for displaying parts collected
+    
     public TextMeshProUGUI InteractionText; // Reference to the TextMeshProUGUI component for displaying interaction messages
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public OpenObject openObject; // Reference to the OpenObject Script
@@ -24,7 +24,7 @@ public class PlayerDetection : MonoBehaviour
     {
         partsCollected++;
         Debug.Log("Parts collected: " + partsCollected);
-        partsCollectedText.text = partsCollected.ToString(); // Update the UI text to display the number of parts collected
+    
     }
 
    
