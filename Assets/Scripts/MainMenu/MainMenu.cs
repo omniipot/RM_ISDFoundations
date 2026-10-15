@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+// this loads the game 
 public class MainMenu : MonoBehaviour
 {
 
