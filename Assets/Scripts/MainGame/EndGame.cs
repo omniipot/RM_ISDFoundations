@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+// this script ends the game when you enter a collider, this stops the timer, calculates your rank and prevents further movement.
 public class EndGame : MonoBehaviour
 {
     public Timer timer;

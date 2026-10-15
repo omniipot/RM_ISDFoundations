@@ -8,14 +8,19 @@ public class ClickToDestroy : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Object Was Clicked");
-        //Debug.LogWarning("Object Was Clicked");
+        Debug.LogWarning("Object Was Clicked");
         //Debug.LogError("Object Was Clicked");//this will stop playmode when ran
         Destroy(ClickOBJToDestroy); // Destroy the object when it is clicked
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
-    
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            ClickOBJToDestroy.SetActive(true);
+        }
     }
 }

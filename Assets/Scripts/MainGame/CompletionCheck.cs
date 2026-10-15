@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// this script just checks that all conditions for leaving has been met
 public class CompletionCheck : MonoBehaviour
 
 {

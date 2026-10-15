@@ -6,6 +6,8 @@ using Unity.VectorGraphics;
 using UnityEditor.PackageManager;
 using UnityEngine;
 // this script is the main way that all of the puzzle codes get randomized correctly and put inside the keypads.
+
+// this majority just reuses the same code over and over again but i didnt want to put it in seperate files 
 public class PuzzleManager : MonoBehaviour
 {
     public Keypad ShapePuzzle;
