@@ -1,7 +1,7 @@
 
 using UnityEngine;
 using System.Collections.Generic;
-
+// this spawns keys inside of the availible key spawnpoints from the closets/wardrobes
 public class ChildObjectSpawner : MonoBehaviour
 {
     [Header("Key Prefabs")]

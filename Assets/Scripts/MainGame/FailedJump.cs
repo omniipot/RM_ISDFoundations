@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// this script is to check if a player in inside a failed jump zone to punish them for failing the job, and sends them back to the entrance
 public class FailedJump : MonoBehaviour
 {
 

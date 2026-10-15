@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-
+// this randomizes text fonts
 public class TextFontRandomizer : MonoBehaviour
 {
 

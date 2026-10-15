@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// this script updates the UI for when you complete a keypad or find a key
 public class ItemCollectionChecking : MonoBehaviour
 {
 

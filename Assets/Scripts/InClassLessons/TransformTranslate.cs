@@ -21,5 +21,25 @@ public class TransformTranslate : MonoBehaviour
         {
             transform.Translate(0,0,-1);
         }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            transform.Translate(1,0,0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            transform.Translate(-1,0,0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.Translate(0,1,0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            transform.Translate(0,-1,0);
+        }
     }
 }

@@ -1,6 +1,6 @@
 
 using UnityEngine;
-
+// this script will assign the plauer a rank which will be displayed on the end screen
 public class RankingSystem : MonoBehaviour
 {
     public string CalculateRank(float time)

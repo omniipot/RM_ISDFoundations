@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+// this script displays text in order on a select delay to show in order
 public class Intro : MonoBehaviour
 {
     public TMP_Text Text1;
