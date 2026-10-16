@@ -15,6 +15,8 @@ public class PlayerDetection : MonoBehaviour
 
     public int partsCollected = 0; // Variable to track the number of parts collected
 
+    public ReactionController reactionController;
+
     
     public TextMeshProUGUI InteractionText; // Reference to the TextMeshProUGUI component for displaying interaction messages
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,6 +53,7 @@ public class PlayerDetection : MonoBehaviour
                 {
                     hasKey1 = true;
                     Destroy(hitInfo.collider.gameObject);
+                    reactionController.Play("Key1");
                    
                     increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
                     itemCollectionChecking.UpdateKeyDisplay();
@@ -64,7 +67,8 @@ public class PlayerDetection : MonoBehaviour
                 {
                     hasKey2 = true;
                     Destroy(hitInfo.collider.gameObject);
-                  
+                     reactionController.Play("Key2");
+
                     increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
                     itemCollectionChecking.UpdateKeyDisplay();
                 }

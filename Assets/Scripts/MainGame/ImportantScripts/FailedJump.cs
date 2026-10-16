@@ -11,6 +11,8 @@ public class FailedJump : MonoBehaviour
     public GameObject Player;
 
     public Timer timer;
+
+    public ReactionController reactionController;
    
     private void OnTriggerEnter(Collider other)
         {
@@ -38,6 +40,7 @@ public class FailedJump : MonoBehaviour
         {
             timer.currentTime += 15f;
             Player.transform.position = SpawnPoint.transform.position;
+            reactionController.Play("fall");
         }
     }
 }

@@ -17,6 +17,7 @@ public class Keypad : MonoBehaviour
     public string KeypadType = "";
 
     public ItemCollectionChecking itemCollectionChecking;
+    public ReactionController reactionController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,6 +64,7 @@ public class Keypad : MonoBehaviour
             Completed = true;
             itemCollectionChecking.UpdateKeypadDisplay(KeypadType);
             
+            
         }
         
         else
@@ -71,6 +73,7 @@ public class Keypad : MonoBehaviour
             Debug.Log("Code is incorrect!");
             text.text = "Incorrect Code!"; // Display a message for incorrect code
             Invoke("Clear", 2f); // Clear the text after 2 seconds
+            reactionController.Play("lockin");
         }
     }
 
