@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 // this script ends the game when you enter a collider, this stops the timer, calculates your rank and prevents further movement.
@@ -9,6 +10,11 @@ public class EndGame : MonoBehaviour
 
     public PlayerMovement playerMovement;
 
+    public Image RankSprite;
+
+    public static string FinalRank;
+    public static float FinalTime;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !hasFinished)
@@ -17,6 +23,9 @@ public class EndGame : MonoBehaviour
             timer.StopTimer();
             string rank = rankingSystem.CalculateRank(timer.currentTime);
             playerMovement.canMove = false;
+
+            FinalRank = rank;
+            FinalTime = timer.currentTime;
 
             Debug.LogWarning("FinalTime: "  + timer.currentTime);
             Debug.LogWarning("Player Rank: " + rank);

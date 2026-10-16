@@ -13,6 +13,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(3);
     }
+
+    public void mainMenu()
+    {
+        SceneManager.LoadSceneAsync(2);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

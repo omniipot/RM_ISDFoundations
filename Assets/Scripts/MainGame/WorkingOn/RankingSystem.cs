@@ -5,7 +5,7 @@ public class RankingSystem : MonoBehaviour
 {
     public string CalculateRank(float time)
     {
-        if (time < 180f)
+        if (time < 150f)
         {
             return "S";
         }
@@ -17,7 +17,7 @@ public class RankingSystem : MonoBehaviour
         {
             return "B";
         }
-        else if (time < 360f)
+        else if (time < 400f)
         {
             return "C";
         }
