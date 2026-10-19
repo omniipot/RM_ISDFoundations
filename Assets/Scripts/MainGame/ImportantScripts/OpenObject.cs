@@ -9,6 +9,10 @@ public class OpenObject : MonoBehaviour
     public Collider frontInteractionCollider;
     public bool Interactable = true;
 
+    public AudioClip Open;
+    public AudioClip Close;
+    public AudioSource SFXSource;
+
     public void DisableInteractionCollider()
     {
         frontInteractionCollider.enabled = false;
@@ -40,11 +44,25 @@ public class OpenObject : MonoBehaviour
 
         isAnimating = true;
         anim.SetTrigger("TrOpen");
+        PlayOpen();
     }
 
     // Called by an Animation Event at the end of the animation
     public void AnimationFinished()
     {
+        playClose();
         isAnimating = false;
     }
+
+    void PlayOpen()
+    {
+        SFXSource.PlayOneShot(Open);
+    }
+    
+
+    void playClose()
+    {
+        SFXSource.PlayOneShot(Close);
+    }
+    
 }

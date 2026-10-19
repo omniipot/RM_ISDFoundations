@@ -12,6 +12,15 @@ public class RankingDisplay : MonoBehaviour
     public GameObject RankC;
     public GameObject RankD;
 
+    public AudioSource SFXSource;
+
+    public AudioClip SRank;
+    public AudioClip ARank;
+    public AudioClip BRank;
+    public AudioClip DRank;
+    public AudioClip CRank;
+    
+
     public GameObject TimeDisplay;
 
     public GameObject ReplayButton;
@@ -27,28 +36,40 @@ public class RankingDisplay : MonoBehaviour
         RankD.SetActive(false);
             
         TimeDisplay.SetActive(false);
-
+        Cursor.visible = true; // Show the cursor when the keypad is active
+        Cursor.lockState = CursorLockMode.None;
+        
         // Display the correct rank
         switch (EndGame.FinalRank)
         {
             case "S":
                 RankS.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+                PlayRankS();
                 break;
 
             case "A":
                 RankA.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+                PlayRankA();
                 break;
 
             case "B":
                 RankB.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+                PlayRankB();
                 break;
 
             case "C":
                 RankC.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+                PlayRankC();
                 break;
 
             case "D":
                 RankD.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+                PlayRankD();
                 break;
 
             default:
@@ -64,5 +85,22 @@ public class RankingDisplay : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ReplayButton.SetActive(true);
         MainMenuButton.SetActive(true);
+    }
+
+    void PlayRankS(){
+    SFXSource.PlayOneShot(SRank);
+    }
+
+    void PlayRankA(){
+    SFXSource.PlayOneShot(SRank);
+    }
+    void PlayRankB(){
+    SFXSource.PlayOneShot(SRank);
+    }
+    void PlayRankC(){
+    SFXSource.PlayOneShot(SRank);
+    }
+    void PlayRankD(){
+    SFXSource.PlayOneShot(SRank);
     }
 }

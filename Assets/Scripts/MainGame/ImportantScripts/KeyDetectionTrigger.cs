@@ -21,6 +21,9 @@ public class KeyDetectionTrigger : MonoBehaviour
     public GameObject Door;
     public Collider doorCollider;
 
+    public AudioSource SFXSource;
+    public AudioClip SlamOpen;
+
     public bool playerInZone = false;
 
     private bool doorAnimationStarted = false;
@@ -58,8 +61,8 @@ public class KeyDetectionTrigger : MonoBehaviour
             doorCollider.enabled = false;
             DoorAnimator.Play("DoorOpen",0,0f);
             CanLeaveLight.color = Color.green;
-            
-            // then play door opening animation
+            SFXSource.PlayOneShot(SlamOpen);
+        
         }
     }
     
