@@ -10,7 +10,8 @@ public class ItemCollectionChecking : MonoBehaviour
     public GameObject KeypadColourTick;
     public GameObject KeypadShapeTick;
     public GameObject KeypadMixedTick;
-
+    public AudioClip FoundSFX;
+    public AudioSource SFXSource;
     
     
 
@@ -32,10 +33,12 @@ public class ItemCollectionChecking : MonoBehaviour
         if(playerDetection.hasKey1 == true)
         {
             Key1Tick.SetActive(true);
+            playFoundSFX();
         }
         if(playerDetection.hasKey2 == true)
         {
             Key2Tick.SetActive(true);
+            playFoundSFX();
         }
     }
 
@@ -44,17 +47,24 @@ public class ItemCollectionChecking : MonoBehaviour
         if(keypadType == "Colour"  )
         {
             KeypadColourTick.SetActive(true);
+            playFoundSFX();
         }
 
         else if(keypadType == "Shape" )
         {
             KeypadShapeTick.SetActive(true);
+            playFoundSFX();
         }
 
         else if(keypadType == "Mixed"  )
         {
             KeypadMixedTick.SetActive(true);
+            playFoundSFX();
         }
     }
 
+    void playFoundSFX()
+    {
+        SFXSource.PlayOneShot(FoundSFX);
+    }
 }

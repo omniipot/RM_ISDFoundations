@@ -16,6 +16,10 @@ public class Keypad : MonoBehaviour
     public bool Completed = false;
     public string KeypadType = "";
 
+    public AudioClip Click;
+    public AudioClip Failure;
+    public AudioSource SFXSource;
+
     public ItemCollectionChecking itemCollectionChecking;
     public ReactionController reactionController;
 
@@ -99,5 +103,15 @@ public class Keypad : MonoBehaviour
         Player.GetComponent<PlayerMovement>().enabled = false; // Disable player movement when the keypad is active
         Cursor.visible = true; // Show the cursor when the keypad is active
         Cursor.lockState = CursorLockMode.None; // Unlock the cursor when the keypad is active
+    }
+
+    public void PlayClick()
+    {
+        SFXSource.PlayOneShot(Click);
+    }
+
+    public void PlayFailure()
+    {
+        SFXSource.PlayOneShot(Failure);
     }
 }

@@ -15,11 +15,19 @@ public class PlayerMovement : MonoBehaviour
     public float defaultHeight = 2f;
     public float crouchHeight = 1f;
     public float crouchSpeed = 3f;
+    public AudioClip[] footsteps;
+    public AudioClip[] jumping;
 
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
     private CharacterController characterController;
+    public AudioSource audioSource;
+    public float walkStepInterval = 0.5f;
+    public float runStepInterval = 0.3f;
 
+    private float footstepTimer = 0f;
+
+    
     public bool canMove = true; 
 
     void Start()
@@ -28,12 +36,20 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
 
     void Update()
     {
+        
+        
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
+        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+
+
+        bool IsMoving  = canMove && (Mathf.Abs(vertical) > 0.1f || Mathf.Abs(horizontal) > 0.1f);
 
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
         float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
@@ -41,9 +57,28 @@ public class PlayerMovement : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
+        if (IsMoving && canMove && characterController.isGrounded)
+            { 
+                footstepTimer -= Time.deltaTime;
+                if(footstepTimer <= 0f)
+                {   
+                    PlayFootstep();
+
+                    footstepTimer = isRunning ? runStepInterval : walkStepInterval;  
+                    }
+            }
+        else
+        {
+            footstepTimer = 0f;
+        }
+                
+        
+           
+
         if ((Input.GetButton("Jump") || Input.GetButton("Jump2")) && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpPower;
+            PlayJump();
         }
         else
         {
@@ -78,5 +113,25 @@ public class PlayerMovement : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
+    }
+
+    void PlayFootstep()
+    {
+        if(footsteps.Length == 0)
+            return;
+
+        int index = Random.Range(0, footsteps.Length);
+
+        audioSource.PlayOneShot(footsteps[index]);
+    }
+    
+     void PlayJump()
+    {
+        if(jumping.Length == 0)
+            return;
+
+        int index = Random.Range(0, jumping.Length);
+
+        audioSource.PlayOneShot(jumping[index]);
     }
 }
