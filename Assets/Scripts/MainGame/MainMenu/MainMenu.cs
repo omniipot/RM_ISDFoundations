@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-// this loads the game 
+// this loads different scenes that will be called via buttons
 public class MainMenu : MonoBehaviour
 {
 
@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
 
     public void mainMenu()
     {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(0);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

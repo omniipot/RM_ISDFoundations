@@ -29,6 +29,7 @@ public class KeyDetectionTrigger : MonoBehaviour
     private bool doorAnimationStarted = false;
 
     public Light CanLeaveLight;
+    public ReactionController reactionController;
     
     void Start()
     {
@@ -62,6 +63,7 @@ public class KeyDetectionTrigger : MonoBehaviour
             DoorAnimator.Play("DoorOpen",0,0f);
             CanLeaveLight.color = Color.green;
             SFXSource.PlayOneShot(SlamOpen);
+            reactionController.Play("escape");
         
         }
     }

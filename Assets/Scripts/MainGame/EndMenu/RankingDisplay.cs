@@ -92,15 +92,15 @@ public class RankingDisplay : MonoBehaviour
     }
 
     void PlayRankA(){
-    SFXSource.PlayOneShot(SRank);
+    SFXSource.PlayOneShot(ARank);
     }
     void PlayRankB(){
-    SFXSource.PlayOneShot(SRank);
+    SFXSource.PlayOneShot(BRank);
     }
     void PlayRankC(){
-    SFXSource.PlayOneShot(SRank);
+    SFXSource.PlayOneShot(CRank);
     }
     void PlayRankD(){
-    SFXSource.PlayOneShot(SRank);
+    SFXSource.PlayOneShot(DRank);
     }
 }
