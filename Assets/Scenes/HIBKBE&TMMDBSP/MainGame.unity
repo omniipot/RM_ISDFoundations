@@ -15282,13 +15282,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668867556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.70710725, y: 0.0000021755695, z: -0.70710635, w: -0.0000012516975}
+  m_LocalRotation: {x: 0.50000197, y: -0.49999857, z: -0.5000008, w: 0.4999987}
   m_LocalPosition: {x: -4.6300025, y: -6.099996, z: 0.0000009536743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 558864473}
-  m_LocalEulerAnglesHint: {x: 180, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 90, z: 90}
 --- !u!1001 &673284204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22210,6 +22210,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7717531940065726008, guid: 051ed9b0d5985ab4a894de21e094c6e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -604316626302413864, guid: 3600765d55a3c194ea4f36ca479858ef, type: 3}
     - target: {fileID: 919132149155446097, guid: 051ed9b0d5985ab4a894de21e094c6e8, type: 3}
       propertyPath: m_Name
       value: Fish
@@ -37849,6 +37853,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7717531940065726008, guid: 051ed9b0d5985ab4a894de21e094c6e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -604316626302413864, guid: 3600765d55a3c194ea4f36ca479858ef, type: 3}
     - target: {fileID: 919132149155446097, guid: 051ed9b0d5985ab4a894de21e094c6e8, type: 3}
       propertyPath: m_Name
       value: Fish (2)
@@ -41830,6 +41838,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7717531940065726008, guid: 051ed9b0d5985ab4a894de21e094c6e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -604316626302413864, guid: 3600765d55a3c194ea4f36ca479858ef, type: 3}
     - target: {fileID: 919132149155446097, guid: 051ed9b0d5985ab4a894de21e094c6e8, type: 3}
       propertyPath: m_Name
       value: Fish (1)
