@@ -11,16 +11,16 @@ public class PlayerDetection : MonoBehaviour
 
     public ItemCollectionChecking itemCollectionChecking;
     
-    public float interactionRange = 3f; // The range at which the player can interact with objects
+    public float interactionRange = 3f; 
 
-    public int partsCollected = 0; // Variable to track the number of parts collected
+    public int partsCollected = 0; 
 
     public ReactionController reactionController;
 
     
-    public TextMeshProUGUI InteractionText; // Reference to the TextMeshProUGUI component for displaying interaction messages
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public OpenObject openObject; // Reference to the OpenObject Script
+    public TextMeshProUGUI InteractionText;
+    
+    public OpenObject openObject; 
     public OpenPaper openPaper;
     public void increasePartsCollected()
     {
@@ -36,18 +36,18 @@ public class PlayerDetection : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    
        void Update()
 
     {
-        InteractionText.text = ""; // Clear the interaction text at the start of each frame
+        InteractionText.text = ""; 
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if(Physics.Raycast(ray, out RaycastHit hitInfo, interactionRange))
         
         {
             //KEY 1
             if(hitInfo.collider.CompareTag("Key1"))
-            { InteractionText.text = "Press E to pick up Key 1"; // Display interaction message
+            { InteractionText.text = "Press E to pick up Key 1";
               
                 if(Input.GetKeyDown(KeyCode.E))
                 {
@@ -55,13 +55,13 @@ public class PlayerDetection : MonoBehaviour
                     Destroy(hitInfo.collider.gameObject);
                     reactionController.Play("Key1");
                    
-                    increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
+                    increasePartsCollected(); 
                     itemCollectionChecking.UpdateKeyDisplay();
                 }
             }
             //KEY 2
             else if(hitInfo.collider.CompareTag("Key2"))
-            { InteractionText.text = "Press E to pick up Key 2"; // Display interaction message
+            { InteractionText.text = "Press E to pick up Key 2"; 
               
                 if(Input.GetKeyDown(KeyCode.E))
                 {
@@ -69,13 +69,13 @@ public class PlayerDetection : MonoBehaviour
                     Destroy(hitInfo.collider.gameObject);
                      reactionController.Play("Key2");
 
-                    increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
+                    increasePartsCollected(); 
                     itemCollectionChecking.UpdateKeyDisplay();
                 }
             }
             
             else if(hitInfo.collider.CompareTag("Keypad"))
-            { InteractionText.text = "Press E to interact with the " + hitInfo.collider.name + " Keypad"; // Display interaction message
+            { InteractionText.text = "Press E to interact with the " + hitInfo.collider.name + " Keypad"; 
               
                 if(Input.GetKeyDown(KeyCode.E))
                 {
@@ -142,7 +142,6 @@ public class PlayerDetection : MonoBehaviour
         
             else
             {
-                Debug.Log("You are not in range of any key");
             }
             Debug.Log("Hit: " + hitInfo.collider.name);
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * interactionRange, Color.green);

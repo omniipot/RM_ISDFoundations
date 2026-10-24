@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 forward = transform.TransformDirection(Vector3.forward); 
         Vector3 right = transform.TransformDirection(Vector3.right);
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
@@ -52,19 +52,20 @@ public class PlayerMovement : MonoBehaviour
         bool IsMoving  = canMove && (Mathf.Abs(vertical) > 0.1f || Mathf.Abs(horizontal) > 0.1f);
 
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
+        float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0; 
+        // if can move, use walkspeed, run speed if running, and set speed to the vertical axis for forward/backward, else set speed to 0
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
         if (IsMoving && canMove && characterController.isGrounded)
             { 
-                footstepTimer -= Time.deltaTime;
+                footstepTimer -= Time.deltaTime; 
                 if(footstepTimer <= 0f)
                 {   
                     PlayFootstep();
 
-                    footstepTimer = isRunning ? runStepInterval : walkStepInterval;  
+                    footstepTimer = isRunning ? runStepInterval : walkStepInterval;   // changes footstep delay depending on run or walk speed
                     }
             }
         else

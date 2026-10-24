@@ -39,7 +39,8 @@ public class KeyDetectionTrigger : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {               //plays animation in sequence if player is in position to play the animation, to ensure that
+                    // they will probably see it 
         if (playerInZone && playerDetection.hasKey1  && sequence1Play == false)
         {
             sequence1Play = true;
@@ -74,8 +75,7 @@ public class KeyDetectionTrigger : MonoBehaviour
     {
         keyAnimator.Play(KeyAnimation,0,0f);
 
-        yield return WaitForAnimation(keyAnimator, KeyAnimation);
-
+        yield return WaitForAnimation(keyAnimator, KeyAnimation); // plays animation after animation is finished
         barrierAnimator.Play(barrierAnimation,0,0f);
 
     }

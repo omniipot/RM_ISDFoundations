@@ -13,7 +13,7 @@ public class BookshelfSpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-      chosenSpawnPoint = Random.Range(0,spawnPoints.Length);
+      chosenSpawnPoint = Random.Range(0,spawnPoints.Length);  // based off spawnpoints the important bookshelf spawns randomly 
       Bookshelf.transform.position = spawnPoints[chosenSpawnPoint].position;
       Bookshelf.transform.rotation = spawnPoints[chosenSpawnPoint].rotation;
     

@@ -61,9 +61,7 @@ public class OutOfBoundsChecker : MonoBehaviour
             float alpha = timeLeft - Mathf.Floor(timeLeft);
 
             CountdownText.text = Mathf.CeilToInt(timeLeft).ToString();
-            Color textColour = CountdownText.color;
-            textColour.a = alpha;
-            CountdownText.color = textColour;
+           
 
         }
         else

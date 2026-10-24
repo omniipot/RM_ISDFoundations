@@ -65,7 +65,8 @@ public class ReactionController : MonoBehaviour
         playback = StartCoroutine(Animate(reaction));
     }
 
-    private IEnumerator Animate(Reaction reaction)
+    private IEnumerator Animate(Reaction reaction) // this is effectively a gif animator, i couldn't figure out a nice
+    // way to do this outside of enabling and disabling unique images, so this was my next best thing.
     {
         float delay = 1f / Mathf.Max(1f, reaction.fps);
 

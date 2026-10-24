@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Security.Permissions;
+
+
 using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VectorGraphics;
 using UnityEditor.PackageManager;
@@ -27,7 +27,8 @@ public class PuzzleManager : MonoBehaviour
     public Transform[] bookSlots;
     public GameObject[] bookColours;
 
-    private readonly string[] MixedAnswer =
+    private readonly string[] MixedAnswer = //string is readonly as to prevent anything from changing it that's not mean't to
+    // it also generates the mixed answer code
     {
         "Triangle",
         "Square",
@@ -91,10 +92,10 @@ public class PuzzleManager : MonoBehaviour
         {
             0,1,2,3,4,5,6,7,8,9
         };
-
+        // fills out a list of numbers and then assigns numbers to them randomly ensuring there is no doubles.
         for (int i = 0; i < numbers.Count; i++)
         {
-            int randomIndex = Random.Range(i, numbers.Count);
+            int randomIndex = Random.Range(i, numbers.Count); // 
 
             int temp = numbers[i];
             numbers[i] = numbers[randomIndex];
@@ -123,6 +124,8 @@ public class PuzzleManager : MonoBehaviour
     }   
 
     void randomizePaintings()
+
+    // creates a list of how many paintings there are to shuffle and how many slots, then randomizes the  painting order)
     {   
         Debug.Log("RandomisePaintings was called!");
         Debug.Log("Paintings: " + paintingShapes.Length);
@@ -143,7 +146,7 @@ public class PuzzleManager : MonoBehaviour
         
         }
         paintingShapes = paintingShuffled.ToArray();
-        for (int i = 0; i < paintingShuffled.Count; i++)
+        for (int i = 0; i < paintingShuffled.Count; i++) 
         {
             
             paintingShuffled[i].transform.SetPositionAndRotation(
@@ -154,7 +157,7 @@ public class PuzzleManager : MonoBehaviour
     }
     string GenerateShapeCode()
     {
-        string code = "";
+        string code = ""; 
 
         foreach (GameObject painting in  paintingShapes)
         {
@@ -167,7 +170,8 @@ public class PuzzleManager : MonoBehaviour
 
             }
 
-            code += symbShapes[clue.shapeName].ToString();
+            code += symbShapes[clue.shapeName].ToString(); // ensures that the painting positions
+            //  adds the number assigned to the paintings shape to the code ensuring a matched painting order
 
         }
 
@@ -175,6 +179,7 @@ public class PuzzleManager : MonoBehaviour
     }
 
     void randomizeBooks()
+    // same idea as the paintings
     {
          List<GameObject> bookShuffled = new List<GameObject>(bookColours);
 
@@ -216,7 +221,7 @@ public class PuzzleManager : MonoBehaviour
 
             }
 
-            code += symbColours[clue.colourName].ToString();
+            code += symbColours[clue.colourName].ToString(); // same idea as the paintings
 
         }
 
@@ -227,7 +232,7 @@ public class PuzzleManager : MonoBehaviour
     {
         string code = "";
     
-       foreach (string symbol in MixedAnswer)
+       foreach (string symbol in MixedAnswer) // assigns the code based off the preset code and the numbers that have been currently set
         {
             int value;
 
