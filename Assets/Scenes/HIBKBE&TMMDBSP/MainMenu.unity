@@ -1248,10 +1248,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextFontRandomizer
   FontList:
-  - {fileID: 11400000, guid: a4027cbc86caab74a9719ae4872b2018, type: 2}
-  - {fileID: 11400000, guid: 2374bcb55fa18a241b865eef891fdc71, type: 2}
-  - {fileID: 11400000, guid: 6286c82d1019a394d90bf8bbe92d082d, type: 2}
-  - {fileID: 11400000, guid: 6286c82d1019a394d90bf8bbe92d082d, type: 2}
+  - {fileID: 11400000, guid: d73d05547199ab84bae641bbfaac4c39, type: 2}
+  - {fileID: 11400000, guid: 66952bdc9b4545649bdd278b3300c8a7, type: 2}
+  - {fileID: 11400000, guid: c6670c136a25e2847a3ff09d20b5ca55, type: 2}
+  - {fileID: 11400000, guid: 66952bdc9b4545649bdd278b3300c8a7, type: 2}
   Text: {fileID: 2027305667}
 --- !u!114 &1619781000
 MonoBehaviour:
@@ -1429,8 +1429,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a4027cbc86caab74a9719ae4872b2018, type: 2}
-  m_sharedMaterial: {fileID: 4750359108319223260, guid: a4027cbc86caab74a9719ae4872b2018, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d73d05547199ab84bae641bbfaac4c39, type: 2}
+  m_sharedMaterial: {fileID: 1139079237873440191, guid: d73d05547199ab84bae641bbfaac4c39, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
