@@ -7,7 +7,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Key1FallDone
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7848200290842266157}
   m_Solo: 0
@@ -17,7 +20,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.6030303
   m_TransitionOffset: 0
   m_ExitTime: 0.680378
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -153,7 +156,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: b99537a1b299cd443b71be0057205ec0, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 8a796758851354c44b8d83410dfd6d7a, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -167,7 +170,31 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: KeysAndBarrier
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: Key1FallDone
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Key2FallDone
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Key1FallStart
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Key2FallStart
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -237,7 +264,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Key2FallDone
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -529116078180227883}
   m_Solo: 0
@@ -247,7 +277,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.4682566
   m_TransitionOffset: 0.5709611
   m_ExitTime: 0.8558365
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -272,7 +302,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 982f3a1ac7fe4f148b4002cc8560869c, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 8a796758851354c44b8d83410dfd6d7a, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
