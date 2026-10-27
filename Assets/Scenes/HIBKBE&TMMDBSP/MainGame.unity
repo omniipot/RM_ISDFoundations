@@ -27959,6 +27959,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5718608718130224077, guid: fb94b18012e9e334fb9b96bcb2f2177e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -5718608718130224077, guid: fb94b18012e9e334fb9b96bcb2f2177e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.00000043277723
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fb94b18012e9e334fb9b96bcb2f2177e, type: 3}
       propertyPath: m_Name
       value: Lock2
@@ -33734,6 +33742,7 @@ GameObject:
   - component: {fileID: 1637866725}
   - component: {fileID: 1637866727}
   - component: {fileID: 1637866726}
+  - component: {fileID: 1637866728}
   m_Layer: 0
   m_Name: SingleWall (16)
   m_TagString: Untagged
@@ -33814,6 +33823,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637866724}
   m_Mesh: {fileID: 6829967405220725688, guid: 6d9d0035fbe93b64d923fa8e5befc8c3, type: 3}
+--- !u!65 &1637866728
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637866724}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.12358922, y: 3.3738518, z: 4.048621}
+  m_Center: {x: -0.39188915, y: -0.21653959, z: 2.1451845}
 --- !u!1 &1646997977
 GameObject:
   m_ObjectHideFlags: 0
