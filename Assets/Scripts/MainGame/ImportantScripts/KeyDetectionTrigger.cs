@@ -10,11 +10,12 @@ public class KeyDetectionTrigger : MonoBehaviour
     public Animator barrier2Animator;
     public Animator DoorAnimator;
 
+    public GameObject Barrier1;
+    public GameObject Barrier2;
+
     public CompletionCheck completionCheck;
 
-    private bool sequence1Play = false;
-    private bool sequence2Play = false;
-
+    
     public bool Key1Inserted = false;
     public bool Key2Inserted = false;
 
@@ -62,31 +63,38 @@ public class KeyDetectionTrigger : MonoBehaviour
 
             playerInZone = true;
         {
-            if (playerInZone && playerDetection.hasKey1 && !Key1Inserted)
-        {
-           key1Animator.SetTrigger("Key1Fall"); 
-          
-         
-           
-            
-            Key1Inserted = true;
-        }
+                if (playerInZone && playerDetection.hasKey1 && !Key1Inserted)
+                {   
+                    Debug.LogWarning("Door conditions met Key1");
+                    key1Animator.SetTrigger("Key1Fall");
+                    Invoke("KILLBARRIER1", 1.2f); // i give up no more barrier animation it will just dissapear this thing SUCKS
+                    Key1Inserted = true;
+                }
     
 
-        if (playerInZone && playerDetection.hasKey2 && !Key2Inserted )
-        {
-           key1Animator.SetTrigger("Key2Fall");
-
-           Key2Inserted = true;
+                if (playerInZone && playerDetection.hasKey2 && !Key2Inserted )
+                {
+                    Debug.LogWarning("Door conditions met Key2");
+                    key2Animator.SetTrigger("Key2Fall");
+                    Invoke("KILLBARRIER2", 1.5f);
+                    Key2Inserted = true;
         
-       }
+                }
         }
     
     }
         
     
 
-      
+        public void KILLBARRIER1()
+        {
+            Destroy(Barrier1);
+        }
+
+        public void KILLBARRIER2()
+        {
+            Destroy(Barrier2);
+        }
       
 
         private void OnTriggerExit(Collider other)
