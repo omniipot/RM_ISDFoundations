@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+
+
 using UnityEngine;
 // this is the movement engine for the player
 [RequireComponent(typeof(CharacterController))]
@@ -24,8 +26,15 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource audioSource;
     public float walkStepInterval = 0.5f;
     public float runStepInterval = 0.3f;
+    public float DefaultFov = 60f;
+
+    public Vector3 horizontalVelocity;
+
+    public float ActualSpeed;
 
     private float footstepTimer = 0f;
+
+    public float zoomFactor = 1f;
 
     
     public bool canMove = true; 
@@ -38,11 +47,11 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
 
     }
-
+    
     void Update()
     {
         
-        
+       
         Vector3 forward = transform.TransformDirection(Vector3.forward); 
         Vector3 right = transform.TransformDirection(Vector3.right);
         float vertical = Input.GetAxis("Vertical");
@@ -57,8 +66,14 @@ public class PlayerMovement : MonoBehaviour
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+        
+       
+        ActualSpeed = characterController.velocity.magnitude;
+        
+        
 
-        if (IsMoving && canMove && characterController.isGrounded)
+
+        if(IsMoving && canMove && characterController.isGrounded)
             { 
                 footstepTimer -= Time.deltaTime; 
                 if(footstepTimer <= 0f)
@@ -73,7 +88,22 @@ public class PlayerMovement : MonoBehaviour
             footstepTimer = 0f;
         }
                 
-        
+      
+         
+
+    float currentSpeed = new Vector3(
+        characterController.velocity.x,
+        0f,
+        characterController.velocity.z
+        ).magnitude;
+
+    float targetFov = DefaultFov + (currentSpeed * zoomFactor);
+
+        playerCamera.fieldOfView = Mathf.Lerp(
+        playerCamera.fieldOfView,
+        targetFov,
+        Time.deltaTime * 5f
+        );
            
 
         if ((Input.GetButton("Jump") || Input.GetButton("Jump2")) && canMove && characterController.isGrounded)
