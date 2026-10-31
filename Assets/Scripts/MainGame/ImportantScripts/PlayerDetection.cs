@@ -22,6 +22,8 @@ public class PlayerDetection : MonoBehaviour
     
     public OpenObject openObject; 
     public OpenPaper openPaper;
+
+
     public void increasePartsCollected()
     {
         partsCollected++;
@@ -136,6 +138,12 @@ public class PlayerDetection : MonoBehaviour
                     }
                 }
 
+            }
+            else if (hitInfo.collider.CompareTag("TheFish"))
+            {
+                InteractionText.text = "Press E to click on The Fish";
+                // play fish animation and Sound and then DeleteFish....
+                // change reaction controller to fish for duration of fish speaking
             }
         
 
