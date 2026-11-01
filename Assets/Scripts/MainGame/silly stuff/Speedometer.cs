@@ -13,9 +13,10 @@ public class Speedometer : MonoBehaviour
    public float MinAngle;
    public float MaxAngle;
    public float maxSpeed;
+   public GameObject Speedlines;
     void Start()
     {
-        
+        Speedlines.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,5 +27,14 @@ public class Speedometer : MonoBehaviour
         SpeedText.text = SpeedString + " M/S";
 
         Needle.localEulerAngles = new Vector3(0,0, Mathf.Lerp(MinAngle, MaxAngle, roundedvalue / maxSpeed));
+
+        if (roundedvalue > 14f)
+        {
+            Speedlines.SetActive(true);
+        }
+        else
+        {
+            Speedlines.SetActive(false);
+        }
     }
 }
