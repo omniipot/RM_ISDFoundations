@@ -780,8 +780,8 @@ MonoBehaviour:
   DRank: {fileID: 8300000, guid: 6788b788f9d949746ae8e1af0203126e, type: 3}
   CRank: {fileID: 8300000, guid: 20ac7f9025b8cac43b7f3b3780e72091, type: 3}
   TimeDisplay: {fileID: 355542128}
-  ReplayButton: {fileID: 0}
-  MainMenuButton: {fileID: 0}
+  ReplayButton: {fileID: 1467999858}
+  MainMenuButton: {fileID: 1821435153}
 --- !u!82 &510167813
 AudioSource:
   m_ObjectHideFlags: 0
@@ -955,6 +955,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 510167811}
     m_Modifications:
+    - target: {fileID: 3821347504592249506, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 907702695}
+    - target: {fileID: 3821347504592249506, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: mainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 4786260553178159437, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1037,7 +1045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5028840831313625669, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
       propertyPath: m_text
-      value: Back 2 Menu
+      value: MAIN MENU
       objectReference: {fileID: 0}
     - target: {fileID: 5028840831313625669, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
       propertyPath: m_fontSize
@@ -1267,6 +1275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf1799480eb84444ab7bd543e335cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
+  quitText: {fileID: 0}
+  quitCount: 1
 --- !u!1001 &999125738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1275,6 +1285,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 510167811}
     m_Modifications:
+    - target: {fileID: 3821347504592249506, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 907702695}
+    - target: {fileID: 3821347504592249506, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: playIntro
+      objectReference: {fileID: 0}
     - target: {fileID: 4786260553178159437, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1357,7 +1375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5028840831313625669, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
       propertyPath: m_text
-      value: Replay
+      value: REPLAY
       objectReference: {fileID: 0}
     - target: {fileID: 5028840831313625669, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
       propertyPath: m_fontSize
@@ -1620,6 +1638,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339321179}
   m_CullTransparentMesh: 1
+--- !u!1 &1467999858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8339168194784078824, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
+  m_PrefabInstance: {fileID: 999125738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1475088392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,6 +1741,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475088392}
   m_CullTransparentMesh: 1
+--- !u!1 &1821435153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8339168194784078824, guid: 793af96734e8b7e4db17b6741f51543f, type: 3}
+  m_PrefabInstance: {fileID: 630228088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

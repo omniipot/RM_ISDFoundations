@@ -11,7 +11,7 @@ public class OutOfBoundsChecker : MonoBehaviour
 
     public float OOBTimeLimit = 4f;
 
-    private float currentTime;
+    private float CheaterTime;
 
     public bool playerInZone = false;
 
@@ -39,7 +39,7 @@ public class OutOfBoundsChecker : MonoBehaviour
             if (other.CompareTag("Player"))
         {
             playerInZone = false;
-            currentTime = 0f;
+            CheaterTime = 0f;
             
         }
         }
@@ -54,11 +54,10 @@ public class OutOfBoundsChecker : MonoBehaviour
     {
         if(playerInZone == true)
         {
-            currentTime += Time.deltaTime;
+            CheaterTime += Time.deltaTime;
 
             TextHolder.SetActive(true);
-            float timeLeft = Mathf.Max(0f,OOBTimeLimit - currentTime);
-            float alpha = timeLeft - Mathf.Floor(timeLeft);
+            float timeLeft = Mathf.Max(0f,OOBTimeLimit - CheaterTime);
 
             CountdownText.text = Mathf.CeilToInt(timeLeft).ToString();
            
@@ -66,16 +65,17 @@ public class OutOfBoundsChecker : MonoBehaviour
         }
         else
         {
-            currentTime -= Time.deltaTime * 0.5f;
+            CheaterTime -= Time.deltaTime * 0.5f;
 
-            currentTime = Mathf.Max(currentTime, 0f);
+            CheaterTime = Mathf.Max(CheaterTime, 0f);
+            TextHolder.SetActive(false);
         }
 
-        if(currentTime >= OOBTimeLimit)
+        if(CheaterTime >= OOBTimeLimit)
         {
             timer.currentTime += 60f;
             Player.transform.position = SpawnPoint.transform.position;
-            currentTime = 0f;
+            CheaterTime = 0f;
             playerInZone = false;
             TextHolder.SetActive(false);
         }

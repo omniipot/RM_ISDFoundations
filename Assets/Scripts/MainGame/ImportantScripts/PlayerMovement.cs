@@ -17,8 +17,15 @@ public class PlayerMovement : MonoBehaviour
     public float defaultHeight = 2f;
     public float crouchHeight = 1f;
     public float crouchSpeed = 3f;
+
+    public float trickAmount = 0f;
+    public float trickStrength = 4f;
+    public float trickForwardStrength = 8f;
+    public float TrickDecay = 1f; // How quickly the trick velocity decays over time
+    public Vector3 trickVelocity = Vector3.zero;
     public AudioClip[] footsteps;
     public AudioClip[] jumping;
+    public AudioClip tricks;
 
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
@@ -27,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkStepInterval = 0.5f;
     public float runStepInterval = 0.3f;
     public float DefaultFov = 60f;
+    public ReactionController reactionController;
 
     public Vector3 horizontalVelocity;
 
@@ -91,20 +99,20 @@ public class PlayerMovement : MonoBehaviour
       
          
 
-    float currentSpeed = new Vector3(
-        characterController.velocity.x,
-        0f,
-        characterController.velocity.z
-        ).magnitude;
+        float currentSpeed = new Vector3(
+            characterController.velocity.x,
+            0f,
+            characterController.velocity.z
+            ).magnitude;
 
-    float targetFov = DefaultFov + (currentSpeed * zoomFactor);
+        float targetFov = DefaultFov + (currentSpeed * zoomFactor);
 
-        playerCamera.fieldOfView = Mathf.Lerp(
-        playerCamera.fieldOfView,
-        targetFov,
-        Time.deltaTime * 5f
-        );
-           
+            playerCamera.fieldOfView = Mathf.Lerp(
+            playerCamera.fieldOfView,
+            targetFov,
+            Time.deltaTime * 5f
+            );
+        
 
         if ((Input.GetButton("Jump") || Input.GetButton("Jump2")) && canMove && characterController.isGrounded)
         {
@@ -121,6 +129,36 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
+         
+        if(Input.GetButtonDown("Trick") && canMove && trickAmount < 3f && !characterController.isGrounded)
+        {
+            moveDirection.y = trickStrength;
+            trickAmount = trickAmount+1f;
+            int randomIndex = Random.Range(1, 6); // generates a random number between 1 and 3
+            reactionController.Play("Taunt"+randomIndex.ToString());
+            
+            Debug.LogWarning("Trick performed! Current trick amount: " + trickAmount);
+            if (trickAmount == 2f)
+            {
+                moveDirection.y = trickStrength * 1.5f;
+                moveDirection += transform.forward * trickForwardStrength; 
+            }
+            if (trickAmount == 3f)
+            {
+                moveDirection.y = trickStrength * 2f;
+                moveDirection += transform.forward * trickForwardStrength; 
+            }
+            trickVelocity = transform.forward * trickForwardStrength;
+            PlayTrick();
+
+        }
+        
+        if (characterController.isGrounded && trickAmount > 0f)
+        {
+            trickAmount = 0f;
+            Debug.LogWarning("Trick amount reset to 0.");
+        }
+
         if (Input.GetKey(KeyCode.LeftControl) && canMove)
         {
             characterController.height = crouchHeight;
@@ -134,7 +172,13 @@ public class PlayerMovement : MonoBehaviour
             walkSpeed = 6f;
             runSpeed = 12f;
         }
-
+        moveDirection += trickVelocity;
+        
+        trickVelocity = Vector3.MoveTowards(trickVelocity, Vector3.zero, TrickDecay * Time.deltaTime); 
+        if (characterController.isGrounded && trickVelocity.magnitude > 0f)
+        {
+            trickVelocity = Vector3.zero;
+        }
         characterController.Move(moveDirection * Time.deltaTime);
 
         if (canMove)
@@ -164,5 +208,10 @@ public class PlayerMovement : MonoBehaviour
         int index = Random.Range(0, jumping.Length);
 
         audioSource.PlayOneShot(jumping[index]);
+    }
+    void PlayTrick()
+    {
+       
+        audioSource.PlayOneShot(tricks, 0.5f);
     }
 }
