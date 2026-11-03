@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HIBKBE&TMMDBSP/StartingSequence.unity
     guid: 7779ee0f1765dbc4db58e3a465fe6b39
+  - enabled: 1
+    path: Assets/Scenes/HIBKBE&TMMDBSP/StartingAnimation.unity
+    guid: 4c38df1581297b044957cfb7db9adf03
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

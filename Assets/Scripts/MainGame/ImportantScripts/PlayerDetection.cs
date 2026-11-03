@@ -22,6 +22,8 @@ public class PlayerDetection : MonoBehaviour
     
     public OpenObject openObject; 
     public OpenPaper openPaper;
+    public ReticleControl reticleControl;
+
 
 
     public void increasePartsCollected()
@@ -41,16 +43,19 @@ public class PlayerDetection : MonoBehaviour
     
        void Update()
 
-    {
+    {   
+
+        
         InteractionText.text = ""; 
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if(Physics.Raycast(ray, out RaycastHit hitInfo, interactionRange))
         
         {
+            
             //KEY 1
             if(hitInfo.collider.CompareTag("Key1"))
             { InteractionText.text = "Press E to pick up Key 1";
-              
+                reticleControl.ReticleActive();
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     hasKey1 = true;
@@ -64,7 +69,7 @@ public class PlayerDetection : MonoBehaviour
             //KEY 2
             else if(hitInfo.collider.CompareTag("Key2"))
             { InteractionText.text = "Press E to pick up Key 2"; 
-              
+                reticleControl.ReticleActive();
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     hasKey2 = true;
@@ -78,7 +83,7 @@ public class PlayerDetection : MonoBehaviour
             
             else if(hitInfo.collider.CompareTag("Keypad"))
             { InteractionText.text = "Press E to interact with the " + hitInfo.collider.name + " Keypad"; 
-              
+                reticleControl.ReticleActive();
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                    Keypad keypad = hitInfo.collider.GetComponent<Keypad>();
@@ -93,7 +98,7 @@ public class PlayerDetection : MonoBehaviour
                 {   
                     OpenObject openObject = hitInfo.collider.GetComponentInParent<OpenObject>();
                     
-                    
+                    reticleControl.ReticleActive();
                     if (openObject != null && openObject.Interactable)
                     {
                         InteractionText.text = "Press E to open";
@@ -108,6 +113,7 @@ public class PlayerDetection : MonoBehaviour
 
             else if (hitInfo.collider.CompareTag("PaperPaint"))
             {
+                reticleControl.ReticleActive();
                 InteractionText.text = "Press E to look at the Painting Paper";
                 if(Input.GetKeyDown(KeyCode.E))
                 {
@@ -124,6 +130,7 @@ public class PlayerDetection : MonoBehaviour
             }
             else if (hitInfo.collider.CompareTag("PaperBook"))
             {
+                reticleControl.ReticleActive();
                  InteractionText.text = "Press E to look at the Book Paper";
                 if(Input.GetKeyDown(KeyCode.E))
                 {
@@ -145,16 +152,20 @@ public class PlayerDetection : MonoBehaviour
                 // play fish animation and Sound and then DeleteFish....
                 // change reaction controller to fish for duration of fish speaking
             }
-        
-
-        
-            else
-            {
-            }
+            
+           
             Debug.Log("Hit: " + hitInfo.collider.name);
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * interactionRange, Color.green);
-    
+            
         
+        }
+        else
+        {
+            if (reticleControl.Active.activeInHierarchy)
+            {
+                reticleControl.ReticleDisable();
+            }
+            
         }
 
        

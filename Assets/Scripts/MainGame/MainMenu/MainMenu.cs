@@ -22,6 +22,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
+    public void loading()
+    {
+        SceneManager.LoadSceneAsync(4);
+    }
+
     
     public void Quit()
     {

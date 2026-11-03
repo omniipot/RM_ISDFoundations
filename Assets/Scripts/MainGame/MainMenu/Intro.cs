@@ -46,7 +46,7 @@ public class Intro : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
                 {
-                   mainMenu.playGame();
+                   mainMenu.loading();
                 }
     }
 
