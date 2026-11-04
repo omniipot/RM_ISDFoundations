@@ -6,6 +6,9 @@ public class CompletionCheck : MonoBehaviour
     public KeyDetectionTrigger keyDetectionTrigger;
     public PlayerDetection playerDetection;
     public bool DoorOpen = false;
+    public bool BlendSky = false;
+
+    public SkyboxBlend skyboxBlendScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +21,13 @@ public class CompletionCheck : MonoBehaviour
         if(keyDetectionTrigger.Key1Inserted && keyDetectionTrigger.Key2Inserted && playerDetection.partsCollected == 5)
         {
             DoorOpen = true;
+            BlendSky = true;
+        }
+
+        if (BlendSky)
+        {
+            skyboxBlendScript.skyboxBlend();
+            
         }
     }
 
