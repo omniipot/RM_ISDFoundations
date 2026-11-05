@@ -779,6 +779,9 @@ MonoBehaviour:
   BRank: {fileID: 8300000, guid: ff14d08a17d93544cade442d4ed20e35, type: 3}
   DRank: {fileID: 8300000, guid: 6788b788f9d949746ae8e1af0203126e, type: 3}
   CRank: {fileID: 8300000, guid: 20ac7f9025b8cac43b7f3b3780e72091, type: 3}
+  RankCDSong: {fileID: 8300000, guid: 597efc9d96d366c4ca10037f86336131, type: 3}
+  RankABSong: {fileID: 8300000, guid: 352e3174c005c6944a73cc2db288f88a, type: 3}
+  RankSSong: {fileID: 8300000, guid: 72654b135acd0fa40bbac0457b525ff2, type: 3}
   TimeDisplay: {fileID: 355542128}
   ReplayButton: {fileID: 1467999858}
   MainMenuButton: {fileID: 1821435153}

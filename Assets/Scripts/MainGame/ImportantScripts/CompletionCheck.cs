@@ -8,7 +8,8 @@ public class CompletionCheck : MonoBehaviour
     public bool DoorOpen = false;
     public bool BlendSky = false;
 
-    public SkyboxBlend skyboxBlendScript;
+    public SkyboxBlend skyboxBlend;
+    public CameraShake cameraShake;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,8 +27,8 @@ public class CompletionCheck : MonoBehaviour
 
         if (BlendSky)
         {
-            skyboxBlendScript.skyboxBlend();
-            
+            skyboxBlend.skyboxBlend();
+            cameraShake.Shake();
         }
     }
 

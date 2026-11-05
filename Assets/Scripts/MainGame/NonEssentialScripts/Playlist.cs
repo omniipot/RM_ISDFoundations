@@ -4,25 +4,25 @@ using TMPro;
 // This script plays a playlist and displays the currently playing song to the player.
 public class PlaylistController : MonoBehaviour
 {
+    private const float FadeInDuration = 3f;
+    private const float FadeOutDuration = 5f;
+
     public AudioClip[] playlistClips;
     public AudioSource audioSource;
     public int currentSongIndex = 0;
     public TextMeshProUGUI songTitleText;
     public Animator textAnimator;
 
+    private float targetVolume;
+
     private void Start()
     {
-        if (playlistClips == null || playlistClips.Length == 0)
+        if (audioSource == null || playlistClips == null || playlistClips.Length == 0)
             return;
 
+        targetVolume = audioSource.volume;
         currentSongIndex = Random.Range(0, playlistClips.Length);
-        audioSource.clip = playlistClips[currentSongIndex];
-        audioSource.Play();
-
-        if (songTitleText != null)
-            songTitleText.text = audioSource.clip.name;
-
-        MoveText();
+        PlayCurrentSong();
     }
 
     private void Update()
@@ -38,6 +38,12 @@ public class PlaylistController : MonoBehaviour
 
         if (audioSource.clip == null || !audioSource.isPlaying)
             return;
+
+        float elapsedTime = audioSource.time;
+        float remainingTime = audioSource.clip.length - elapsedTime;
+        float fadeIn = Mathf.Clamp01(elapsedTime / FadeInDuration);
+        float fadeOut = Mathf.Clamp01(remainingTime / FadeOutDuration);
+        audioSource.volume = targetVolume * Mathf.Min(fadeIn, fadeOut);
 
         int bufferLength;
         AudioSettings.GetDSPBufferSize(out bufferLength, out _);
@@ -71,7 +77,13 @@ public class PlaylistController : MonoBehaviour
     private void PlayNextSong()
     {
         currentSongIndex = (currentSongIndex + 1) % playlistClips.Length;
+        PlayCurrentSong();
+    }
+
+    private void PlayCurrentSong()
+    {
         audioSource.clip = playlistClips[currentSongIndex];
+        audioSource.volume = 0f;
         audioSource.Play();
 
         if (songTitleText != null)

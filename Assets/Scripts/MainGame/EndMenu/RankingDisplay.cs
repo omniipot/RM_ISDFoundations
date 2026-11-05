@@ -19,6 +19,10 @@ public class RankingDisplay : MonoBehaviour
     public AudioClip BRank;
     public AudioClip DRank;
     public AudioClip CRank;
+
+    public AudioClip RankCDSong;
+    public AudioClip RankABSong;
+    public AudioClip RankSSong;
     
 
     public GameObject TimeDisplay;
@@ -45,30 +49,35 @@ public class RankingDisplay : MonoBehaviour
             case "S":
                 RankS.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
+                PlayRankSong(RankSSong);
                 PlayRankS();
                 break;
 
             case "A":
                 RankA.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
+                PlayRankSong(RankABSong);
                 PlayRankA();
                 break;
 
             case "B":
                 RankB.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
+                PlayRankSong(RankABSong);
                 PlayRankB();
                 break;
 
             case "C":
                 RankC.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
+                PlayRankSong(RankCDSong);
                 PlayRankC();
                 break;
 
             case "D":
                 RankD.SetActive(true);
                 yield return new WaitForSeconds(0.5f);
+                PlayRankSong(RankCDSong);
                 PlayRankD();
                 break;
 
@@ -85,6 +94,15 @@ public class RankingDisplay : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ReplayButton.SetActive(true);
         MainMenuButton.SetActive(true);
+    }
+
+    void PlayRankSong(AudioClip song)
+    {
+        if (SFXSource == null || song == null)
+            return;
+
+        SFXSource.clip = song;
+        SFXSource.Play();
     }
 
 
