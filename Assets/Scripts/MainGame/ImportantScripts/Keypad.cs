@@ -51,7 +51,7 @@ public class Keypad : MonoBehaviour
         if (Completed)
         {
             text.text = "You've been here already! GO FASTER!!";
-            Invoke("Exit", 2f);
+            Invoke("Exit", 0.5f );
             return;
         }
 
@@ -60,8 +60,8 @@ public class Keypad : MonoBehaviour
             isCodeCorrect = true; // Set the trigger to true if the code is correct
             Debug.Log("Code is correct!");
             text.text = "Correct Code!"; // Display a message for correct code
-            Invoke("Clear", 2f); // Clear the text after 2 seconds
-            Invoke("Exit", 2f); // Close the keypad after 2 seconds
+            Invoke("Clear", 0.5f); // Clear the text after 0.5 seconds
+            Invoke("Exit", 0.5f); // Close the keypad after 0.5 seconds
             Cursor.visible = false; // Hide the cursor when the keypad is closed
             Cursor.lockState = CursorLockMode.Locked; // Lock the cursor when the keypad is closed
             playerDetection.increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
@@ -76,8 +76,9 @@ public class Keypad : MonoBehaviour
             isCodeCorrect = false; // Set the trigger to false if the code is incorrect
             Debug.Log("Code is incorrect!");
             text.text = "Incorrect Code!"; // Display a message for incorrect code
-            Invoke("Clear", 2f); // Clear the text after 2 seconds
+            Invoke("Clear", 0.5f); 
             reactionController.Play("lockin");
+            PlayFailure();
         }
     }
 

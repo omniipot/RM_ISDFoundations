@@ -337,6 +337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   quitText: {fileID: 2300101}
   quitCount: 0
+  audioSource: {fileID: 5459601225187112553}
+  buttonSound: {fileID: 8300000, guid: bc536af8dc05f824ca156b5f5073fb2b, type: 3}
 --- !u!1 &127616575
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,6 +854,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   quitText: {fileID: 0}
   quitCount: 0
+  audioSource: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!81 &528374068
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2050,11 +2054,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3687740034776160137, guid: a3fa8750ac207b443b0ba1bd4dd372a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2171
       objectReference: {fileID: 0}
     - target: {fileID: 3687740034776160137, guid: a3fa8750ac207b443b0ba1bd4dd372a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 918
       objectReference: {fileID: 0}
     - target: {fileID: 3687740034776160137, guid: a3fa8750ac207b443b0ba1bd4dd372a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2096,6 +2100,11 @@ PrefabInstance:
 --- !u!4 &5459601225187112552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3687740034776160137, guid: a3fa8750ac207b443b0ba1bd4dd372a5, type: 3}
+  m_PrefabInstance: {fileID: 5459601225187112551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5459601225187112553 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8683976466214179728, guid: a3fa8750ac207b443b0ba1bd4dd372a5, type: 3}
   m_PrefabInstance: {fileID: 5459601225187112551}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

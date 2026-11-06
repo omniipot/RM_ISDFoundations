@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 trickVelocity = Vector3.zero;
     public AudioClip[] footsteps;
     public AudioClip[] jumping;
-    public AudioClip tricks;
+    public AudioClip[] tricks;
 
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
@@ -211,7 +211,17 @@ public class PlayerMovement : MonoBehaviour
     }
     void PlayTrick()
     {
-       
-        audioSource.PlayOneShot(tricks, 0.5f);
+       if(trickAmount == 1f)
+        {
+            audioSource.PlayOneShot(tricks[0]);
+        }
+        else if(trickAmount == 2f)
+        {
+            audioSource.PlayOneShot(tricks[1]);
+        }
+        else if(trickAmount == 3f)
+        {
+            audioSource.PlayOneShot(tricks[2]); 
+        }
     }
 }

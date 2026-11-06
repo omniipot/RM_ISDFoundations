@@ -7,29 +7,39 @@ public class MainMenu : MonoBehaviour
 {
     public TMP_Text quitText;
     public int quitCount = 1;
+    public AudioSource audioSource;
+    public AudioClip buttonSound;
     public void playGame()
     {
+        playSound();
         SceneManager.LoadSceneAsync(1);
     }
 
     public void playIntro()
     {
+        playSound();
         SceneManager.LoadSceneAsync(3);
     }
 
     public void mainMenu()
     {
+        playSound();
         SceneManager.LoadSceneAsync(0);
     }
 
     public void loading()
     {
+        playSound();
         SceneManager.LoadSceneAsync(4);
     }
 
-    
+    public void playSound()
+    {
+        audioSource.PlayOneShot(buttonSound, 0.5f);
+    }
     public void Quit()
     {
+        playSound();
         quitText.text = "QUIT?";
         quitCount++;
         if (quitCount >= 2)

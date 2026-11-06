@@ -5156,7 +5156,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.645
+  m_Volume: 0.445
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6585,11 +6585,15 @@ PrefabInstance:
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: Click
       value: 
-      objectReference: {fileID: 8300000, guid: c41903a86f844bb4a8093321a4631ef6, type: 3}
+      objectReference: {fileID: 8300000, guid: bc536af8dc05f824ca156b5f5073fb2b, type: 3}
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 157089755}
+    - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
+      propertyPath: Failure
+      value: 
+      objectReference: {fileID: 8300000, guid: 059615753e005d54aa60bcae07c701c9, type: 3}
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: SFXSource
       value: 
@@ -12756,6 +12760,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
+      propertyPath: tricks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
       propertyPath: jumping.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -12768,17 +12776,29 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
+      propertyPath: 'tricks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 13b8d831fa50e654e983e79df42c8d31, type: 3}
+    - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
+      propertyPath: 'tricks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0607556a011a6b8439bacd190a56328b, type: 3}
+    - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
+      propertyPath: 'tricks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c52b35c6b88e1640828099002c296e0, type: 3}
+    - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
       propertyPath: 'jumping.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: 8d74ae9a89533f241b65c961532e36e0, type: 3}
+      objectReference: {fileID: 8300000, guid: f1f58de06f15b784db9df879e95f634c, type: 3}
     - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
       propertyPath: 'jumping.Array.data[1]'
       value: 
-      objectReference: {fileID: 8300000, guid: f45191e4d4aa8264a853073a8cbc848a, type: 3}
+      objectReference: {fileID: 8300000, guid: 8d74ae9a89533f241b65c961532e36e0, type: 3}
     - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
       propertyPath: 'jumping.Array.data[2]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 8d74ae9a89533f241b65c961532e36e0, type: 3}
     - target: {fileID: 1932118241755581582, guid: 079a72964743ff94b8be5e0462a4df31, type: 3}
       propertyPath: 'jumping.Array.data[3]'
       value: 
@@ -27274,11 +27294,15 @@ PrefabInstance:
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: Click
       value: 
-      objectReference: {fileID: 8300000, guid: c41903a86f844bb4a8093321a4631ef6, type: 3}
+      objectReference: {fileID: 8300000, guid: bc536af8dc05f824ca156b5f5073fb2b, type: 3}
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 157089755}
+    - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
+      propertyPath: Failure
+      value: 
+      objectReference: {fileID: 8300000, guid: 059615753e005d54aa60bcae07c701c9, type: 3}
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: SFXSource
       value: 
@@ -51843,11 +51867,15 @@ PrefabInstance:
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: Click
       value: 
-      objectReference: {fileID: 8300000, guid: c41903a86f844bb4a8093321a4631ef6, type: 3}
+      objectReference: {fileID: 8300000, guid: bc536af8dc05f824ca156b5f5073fb2b, type: 3}
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 157089755}
+    - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
+      propertyPath: Failure
+      value: 
+      objectReference: {fileID: 8300000, guid: 059615753e005d54aa60bcae07c701c9, type: 3}
     - target: {fileID: 8795281866495671055, guid: 1940abaa5b7aadc42a6cbdad3473c518, type: 3}
       propertyPath: SFXSource
       value: 

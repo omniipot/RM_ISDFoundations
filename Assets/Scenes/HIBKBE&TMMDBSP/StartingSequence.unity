@@ -1314,6 +1314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   quitText: {fileID: 0}
   quitCount: 1
+  audioSource: {fileID: 1965832677}
+  buttonSound: {fileID: 8300000, guid: bc536af8dc05f824ca156b5f5073fb2b, type: 3}
 --- !u!1 &1498474620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1641,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!82 &1965832677 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8683976466214179728, guid: a3fa8750ac207b443b0ba1bd4dd372a5, type: 3}
+  m_PrefabInstance: {fileID: 1089177258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2018587875
 GameObject:
   m_ObjectHideFlags: 0
