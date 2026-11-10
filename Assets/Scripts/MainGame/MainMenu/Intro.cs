@@ -17,6 +17,7 @@ public class Intro : MonoBehaviour
     public GameObject Image2;
     public GameObject Image3;
     public GameObject Image4;
+    public GameObject Image5;
 
 
 
@@ -35,6 +36,7 @@ public class Intro : MonoBehaviour
         Image2.gameObject.SetActive(false);
         Image3.gameObject.SetActive(false);
         Image4.gameObject.SetActive(false);
+        Image5.gameObject.SetActive(false);
            
 
 
@@ -81,8 +83,13 @@ public class Intro : MonoBehaviour
             Image4.gameObject.SetActive(true);
             yield return new WaitForSeconds(2f);
 
+            Image5.gameObject.SetActive(true);
+            yield return new WaitForSeconds(2f);
+
             PlayButton.gameObject.SetActive(true);
             yield return new WaitForSeconds(4f);
+
+            
             
             ;
         }
