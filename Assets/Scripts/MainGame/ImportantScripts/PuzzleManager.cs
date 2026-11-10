@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 
 
-using Microsoft.Unity.VisualStudio.Editor;
-using Unity.VectorGraphics;
-using UnityEditor.PackageManager;
+
+
+
 using UnityEngine;
 // this script is the main way that all of the puzzle codes get randomized correctly and put inside the keypads.
 

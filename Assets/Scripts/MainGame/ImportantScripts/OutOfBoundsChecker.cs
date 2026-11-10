@@ -1,8 +1,6 @@
 using UnityEngine;
 using System;
-using Unity.PlasticSCM.Editor.WebApi;
 using TMPro;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.Purchasing;
 // this script is very similar to Failed jump, punishing the player when they go inside a select zone and stays there for X amount of time
 //giving them a time penalty when they stay inside the zone for too long
@@ -23,7 +21,7 @@ public class OutOfBoundsChecker : MonoBehaviour
     public GameObject TextHolder;
     public TMP_Text CountdownText;
 
-    public Image Evil;
+    public GameObject Evil;
 
 
     private void OnTriggerEnter(Collider other)

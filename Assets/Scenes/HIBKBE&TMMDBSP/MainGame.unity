@@ -29246,7 +29246,7 @@ MonoBehaviour:
   KeypadColourTick: {fileID: 1939026482}
   KeypadShapeTick: {fileID: 2003926093}
   KeypadMixedTick: {fileID: 94790955}
-  FoundSFX: {fileID: 8300000, guid: c8a79239997feaf429ea4fb45f04079f, type: 3}
+  FoundSFX: {fileID: 8300000, guid: c630dd80132e6a749b58a3c63be89b55, type: 3}
   SFXSource: {fileID: 157089761}
 --- !u!1001 &1126635464
 PrefabInstance:
@@ -41346,6 +41346,7 @@ MonoBehaviour:
   timer: {fileID: 4807210526177423995}
   TextHolder: {fileID: 1344218720}
   CountdownText: {fileID: 884733397}
+  Evil: {fileID: 0}
 --- !u!65 &1464553921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44617,63 +44618,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646997977}
   m_Mesh: {fileID: 2783131832183395012, guid: e5ac965095a760c4ca6e4d00b401772f, type: 3}
---- !u!1001 &1647489591
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.358825
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.05030175
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 22.203686
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
-      propertyPath: m_Name
-      value: Test
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 09ef3448d1c7cb440b38626e754b4194, type: 3}
 --- !u!1 &1664516251
 GameObject:
   m_ObjectHideFlags: 0
@@ -68856,7 +68800,6 @@ SceneRoots:
   - {fileID: 797306962}
   - {fileID: 1441779058}
   - {fileID: 323881232}
-  - {fileID: 1647489591}
   - {fileID: 1637866725}
   - {fileID: 1984815003}
   - {fileID: 1455785769}
