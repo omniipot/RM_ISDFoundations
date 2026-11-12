@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,13 +7,15 @@ using UnityEngine.UI;
 public class Keypad : MonoBehaviour
 {
 
-    public string keypadCode = "1234"; // The correct code for the keypad
-    public bool isCodeCorrect = false; // Whether the code entered is correct
-    public GameObject Keypads; // Reference to the keypad UI
+    public string keypadCode = "1234"; 
+    public bool isCodeCorrect = false; 
+    public GameObject Keypads; 
     public GameObject Player;
-    public Text text; // Reference to the Text component for displaying messages
+    public Canvas Canvas; 
+    public GameObject canvasObject;
+    public Text text; 
     
-    public PlayerDetection playerDetection; // Reference to the PlayerDetection script
+    public PlayerDetection playerDetection; 
     public bool Completed = false;
     public string KeypadType = "";
 
@@ -24,20 +27,22 @@ public class Keypad : MonoBehaviour
     public ReactionController reactionController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-       Keypads.SetActive(false); // Hide the keypad UI at the start 
+       Keypads.SetActive(false); 
+       canvasObject.SetActive(false);
+    
        Clear(); // Clear the text at the start due to bug idk how to fix it but this is a temporary solution
     }
 
     public void Number(int number)
     {
-        text.text += number.ToString(); // Append the number to the text
+        text.text += number.ToString(); 
     }
 
     public void Clear()
     {
-        text.text = ""; // Clear the text
+        text.text = ""; 
     }
     public void SetCode(string newCode)
     {
@@ -51,20 +56,20 @@ public class Keypad : MonoBehaviour
         if (Completed)
         {
             text.text = "You've been here already! GO FASTER!!";
-            Invoke("Exit", 0.5f );
+            Invoke("Exit", 0.2f );
             return;
         }
 
         if (text.text == keypadCode)
         {
-            isCodeCorrect = true; // Set the trigger to true if the code is correct
+            isCodeCorrect = true; 
             Debug.Log("Code is correct!");
-            text.text = "Correct Code!"; // Display a message for correct code
-            Invoke("Clear", 0.5f); // Clear the text after 0.5 seconds
-            Invoke("Exit", 0.5f); // Close the keypad after 0.5 seconds
-            Cursor.visible = false; // Hide the cursor when the keypad is closed
-            Cursor.lockState = CursorLockMode.Locked; // Lock the cursor when the keypad is closed
-            playerDetection.increasePartsCollected(); // Call the increasePartsCollected method to increment the partsCollected variable
+            text.text = "Correct Code!"; 
+            Invoke("Clear", 0.5f); 
+            Invoke("Exit", 0.5f); 
+            Cursor.visible = false; 
+            Cursor.lockState = CursorLockMode.Locked; 
+            playerDetection.increasePartsCollected(); 
             Completed = true;
             itemCollectionChecking.UpdateKeypadDisplay(KeypadType);
             
@@ -73,9 +78,9 @@ public class Keypad : MonoBehaviour
         
         else
         {
-            isCodeCorrect = false; // Set the trigger to false if the code is incorrect
+            isCodeCorrect = false; 
             Debug.Log("Code is incorrect!");
-            text.text = "Incorrect Code!"; // Display a message for incorrect code
+            text.text = "Incorrect Code!"; 
             Invoke("Clear", 0.5f); 
             reactionController.Play("lockin");
             PlayFailure();
@@ -85,7 +90,8 @@ public class Keypad : MonoBehaviour
     public void Exit()
     {
        Keypads.SetActive(false); // Hide the keypad UI
-       Player.GetComponent<PlayerMovement>().enabled = true; // Enable player movement
+       canvasObject.SetActive(false);
+       Player.GetComponent<PlayerMovement>().enabled = true; 
        Cursor.visible = false;
        Cursor.lockState = CursorLockMode.Locked;
     }
@@ -100,10 +106,13 @@ public class Keypad : MonoBehaviour
     }
     public void OpenKeypad()
     {
-        Keypads.SetActive(true);
-        Player.GetComponent<PlayerMovement>().enabled = false; // Disable player movement when the keypad is active
-        Cursor.visible = true; // Show the cursor when the keypad is active
-        Cursor.lockState = CursorLockMode.None; // Unlock the cursor when the keypad is active
+        StartCoroutine(EnableDisableEnable());
+        Canvas.ForceUpdateCanvases(); 
+        Clear(); 
+        Player.GetComponent<PlayerMovement>().enabled = false; 
+        Cursor.visible = true; 
+        Cursor.lockState = CursorLockMode.None; 
+        
     }
 
     public void PlayClick()
@@ -114,5 +123,16 @@ public class Keypad : MonoBehaviour
     public void PlayFailure()
     {
         SFXSource.PlayOneShot(Failure);
+    }
+    public IEnumerator EnableDisableEnable()
+    {   
+        Keypads.SetActive(true);
+        canvasObject.SetActive(true);
+        yield return new WaitForSeconds(0.0001f); 
+        Keypads.SetActive(false);
+        canvasObject.SetActive(false);
+        yield return new WaitForSeconds(0.0001f); 
+        Keypads.SetActive(true);
+        canvasObject.SetActive(true);
     }
 }

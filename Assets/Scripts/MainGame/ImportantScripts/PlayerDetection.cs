@@ -89,7 +89,11 @@ public class PlayerDetection : MonoBehaviour
                    Keypad keypad = hitInfo.collider.GetComponent<Keypad>();
                    if(keypad != null)
                    {
-                       keypad.OpenKeypad();
+                          keypad.OpenKeypad();
+                     }
+                     else
+                     {
+                          Debug.LogError("Keypad component not found on the object: " + hitInfo.collider.name);
                    }
                 }
 
@@ -168,7 +172,7 @@ public class PlayerDetection : MonoBehaviour
             
         }
 
-       
+    
        
 
 
