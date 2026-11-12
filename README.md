@@ -5,15 +5,14 @@ This is my escape room project called..
 This is a very non serious speedrunning game with a focus on memory and routing as it's main way of slowing you down, you have a lot of tools to escape, but can you actually remember the codes to the keypads?
 
 ## Controls
-Movement - WASD
-Jump - Space/M1
-Sprint - Shift
-Crouch - Ctrl
-Dash - M2 while in Mid Air
-Interact - E
-Close Menus - Q
-Reset - Hold R
-
+Movement - WASD<br>
+Jump - Space/M1<br>
+Sprint - Shift<br>
+Crouch - Ctrl<br>
+Dash - M2 while in Mid Air<br>
+Interact - E<br>
+Close Menus - Q<br>
+Reset - Hold R<br>
 ## Credits
 
 Day of the Droids - Breakcore / BCP4 
