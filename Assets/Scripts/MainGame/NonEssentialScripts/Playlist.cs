@@ -21,7 +21,7 @@ public class PlaylistController : MonoBehaviour
             return;
 
         targetVolume = audioSource.volume;
-        currentSongIndex = Random.Range(0, 6);
+        currentSongIndex = Random.Range(0, playlistClips.Length);
         PlayCurrentSong();
     }
 
