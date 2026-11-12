@@ -1,6 +1,7 @@
     
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class RankingDisplay : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class RankingDisplay : MonoBehaviour
     public AudioClip RankSSong;
     
 
-    public GameObject TimeDisplay;
+    public TMP_Text TimeDisplay;
 
     public GameObject ReplayButton;
     public GameObject MainMenuButton;
@@ -38,11 +39,12 @@ public class RankingDisplay : MonoBehaviour
         RankB.SetActive(false);
         RankC.SetActive(false);
         RankD.SetActive(false);
+       
             
-        TimeDisplay.SetActive(false);
+        
         Cursor.visible = true; // Show the cursor when the keypad is active
         Cursor.lockState = CursorLockMode.None;
-        
+        TimeDisplay.text = "Time: " + EndGame.FinalTime.ToString("F2") + " seconds";
         
         switch (EndGame.FinalRank) // check the result, i used a switch because i felt it was easier to maintain if i wanted to add more ranks
         {
@@ -86,14 +88,7 @@ public class RankingDisplay : MonoBehaviour
                 yield break;
         }
 
-        // Wait 4 seconds
-        yield return new WaitForSeconds(4f);
-
-        // Display the time
-        TimeDisplay.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        ReplayButton.SetActive(true);
-        MainMenuButton.SetActive(true);
+        
     }
 
     void PlayRankSong(AudioClip song)

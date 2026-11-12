@@ -375,8 +375,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d73d05547199ab84bae641bbfaac4c39, type: 2}
-  m_sharedMaterial: {fileID: 1139079237873440191, guid: d73d05547199ab84bae641bbfaac4c39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 66952bdc9b4545649bdd278b3300c8a7, type: 2}
+  m_sharedMaterial: {fileID: 6800608623921853122, guid: 66952bdc9b4545649bdd278b3300c8a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -150.1936, y: 0, z: -140.4082, w: 0}
+  m_margin: {x: -248.82251, y: 0, z: -140.4082, w: -54.782837}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TextFontRandomizer
   FontList:
   - {fileID: 11400000, guid: d73d05547199ab84bae641bbfaac4c39, type: 2}
-  - {fileID: 11400000, guid: cc0b2381352cc0848993401fb4eddbe7, type: 2}
+  - {fileID: 11400000, guid: c6670c136a25e2847a3ff09d20b5ca55, type: 2}
   - {fileID: 11400000, guid: 66952bdc9b4545649bdd278b3300c8a7, type: 2}
   Text: {fileID: 355542130}
 --- !u!1 &487092746
@@ -782,7 +782,7 @@ MonoBehaviour:
   RankCDSong: {fileID: 8300000, guid: 597efc9d96d366c4ca10037f86336131, type: 3}
   RankABSong: {fileID: 8300000, guid: 352e3174c005c6944a73cc2db288f88a, type: 3}
   RankSSong: {fileID: 8300000, guid: 72654b135acd0fa40bbac0457b525ff2, type: 3}
-  TimeDisplay: {fileID: 355542128}
+  TimeDisplay: {fileID: 355542130}
   ReplayButton: {fileID: 1467999858}
   MainMenuButton: {fileID: 1821435153}
 --- !u!82 &510167813
