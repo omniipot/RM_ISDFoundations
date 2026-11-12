@@ -44,7 +44,7 @@ public class RankingDisplay : MonoBehaviour
         
         Cursor.visible = true; // Show the cursor when the keypad is active
         Cursor.lockState = CursorLockMode.None;
-        TimeDisplay.text = "Time: " + EndGame.FinalTime.ToString("F2") + " seconds";
+        TimeDisplay.text = "Time: " + EndGame.FormattedText;
         
         switch (EndGame.FinalRank) // check the result, i used a switch because i felt it was easier to maintain if i wanted to add more ranks
         {

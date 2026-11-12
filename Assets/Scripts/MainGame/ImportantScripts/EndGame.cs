@@ -8,6 +8,7 @@ public class EndGame : MonoBehaviour
     public RankingSystem rankingSystem;
 
     public PlayerMovement playerMovement;
+    public static string FormattedText;
 
 
     public static string FinalRank;
@@ -24,6 +25,7 @@ public class EndGame : MonoBehaviour
 
             FinalRank = rank;
             FinalTime = timer.currentTime;
+            FormattedText = timer.currentTimerText;
 
             Debug.LogWarning("FinalTime: "  + timer.currentTime);
             Debug.LogWarning("Player Rank: " + rank);

@@ -108,7 +108,6 @@ public class Keypad : MonoBehaviour
     {
         StartCoroutine(EnableDisableEnable());
         Canvas.ForceUpdateCanvases(); 
-        Clear(); 
         Player.GetComponent<PlayerMovement>().enabled = false; 
         Cursor.visible = true; 
         Cursor.lockState = CursorLockMode.None; 
